@@ -1,5 +1,6 @@
+
 /*-------------- Constants -------------*/
-const WORDLE_WORD_LIST;
+const WORD_LIST = require('./words-list.js');
 
 const MAX_GUESSES = 6;
 
