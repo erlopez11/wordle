@@ -101,8 +101,8 @@ function compareWords() {
     }
 
     for (let i = 0; i < PLAYER_WORDS[idx].guess.length; i++) {
-        if (wordleWord[i] === PLAYER_WORDS[idx].guess.charAt(i) ) {
-    
+        if (wordleWord[i] === PLAYER_WORDS[idx].guess.charAt(i)) {
+
             console.log('correct word, correct position', PLAYER_WORDS[idx].guess.charAt(i));
         } else if (wordleWord[i].includes(PLAYER_WORDS[idx].guess[i])) {
             console.log('correct letter wrong position', PLAYER_WORDS[idx].guess.charAt(i))
@@ -113,6 +113,15 @@ function compareWords() {
     }
 }
 
+function moveToNextRow() {
+    console.log(playerGuesses);
+    if (playerGuesses === 5) {
+        console.log('End of the Game');
+    }
+
+    playerGuesses += 1;
+    playerGuess = '';
+}
 
 function render() {
 
@@ -123,7 +132,8 @@ function handle() {
     console.log(PLAYER_WORDS)
     console.log(playerGuess);
     //validateWord();  not acepting all words b/c player words have ''
-    compareWords()
+    compareWords();
+    moveToNextRow();
 
 }
 
