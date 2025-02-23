@@ -3,18 +3,18 @@
 const MAX_GUESSES = 6;
 
 const PLAYER_WORDS = [
-    { word: null },
-    { word: null },
-    { word: null },
-    { word: null },
-    { word: null },
-    { word: null },
+    { guess: null },
+    { guess: null },
+    { guess: null },
+    { guess: null },
+    { guess: null },
+    { guess: null },
 ]
 
 /*---------- Variables (state) ---------*/
 
 let wordleWord;
-let playerGuessesRemain;
+let playerGuesses;
 let playerGuess;
 let win;
 let board;
@@ -29,7 +29,7 @@ document.getElementById('keyboard').addEventListener('click', (event) => {
 
     if (event.target.classList.contains('letterKey')) {
         addLetters(event.target.textContent);
-        console.log(playerGuess);
+
     }
 
     if (event.target.classList.contains('delete')) {
@@ -37,7 +37,7 @@ document.getElementById('keyboard').addEventListener('click', (event) => {
     }
 
     if (event.target.classList.contains('submit')) {
-
+        handleMove()
     }
 })
 
@@ -55,14 +55,16 @@ function initialize() {
     ]
     getWordleWord()
     win = false;
-    playerGuessesRemain = 6;
+    playerGuesses = 0;
     playerGuess = '';
+    console.log(wordleWord);
 }
 
 function getWordleWord() {
     let randomIndex = Math.floor(Math.random() * WORD_LIST.length);
     wordleWord = WORD_LIST[randomIndex];
 }
+
 
 function addLetters(letter) {
     if (playerGuess.length !== 5) {
@@ -74,16 +76,44 @@ function addLetters(letter) {
     }
 }
 
-function deleteLetter() {
-    //playerGuess.slice(0, -1);
+function updatePlayerWords() {
+    PLAYER_WORDS.forEach((row, index) => {
+        if (index === playerGuesses) {
+            row.guess = playerGuess.toLowerCase();
+        }
+    })
+}
+
+function validateWord() {
+    if (!WORD_LIST.includes(playerGuess)) {
+        console.log('word not included');
+        return;
+    }
+}
+
+function compareWords() {
+
+    if (wordleWord === playerGuess) {
+        win = true;
+        console.log("You win!")
+    } else {
+    }
 }
 
 function render() {
 
 }
 
+function handleMove() {
+    updatePlayerWords();
+    console.log(PLAYER_WORDS)
+    //validateWord();  not acepting all words b/c player words have ''
+    compareWords()
+
+}
+
 initialize()
-console.log(playerGuess);
+
 
 
 
