@@ -37,7 +37,7 @@ document.getElementById('keyboard').addEventListener('click', (event) => {
     }
 
     if (event.target.classList.contains('submit')) {
-        handleMove()
+        handle()
     }
 })
 
@@ -93,19 +93,32 @@ function validateWord() {
 }
 
 function compareWords() {
+    let idx = playerGuesses;
 
     if (wordleWord === playerGuess.toLowerCase()) {
         win = true;
         console.log("You win!")
-    } else {
+    }
+
+    for (let i = 0; i < PLAYER_WORDS[idx].guess.length; i++) {
+        if (wordleWord[i] === PLAYER_WORDS[idx].guess.charAt(i) ) {
+    
+            console.log('correct word, correct position', PLAYER_WORDS[idx].guess.charAt(i));
+        } else if (wordleWord[i].includes(PLAYER_WORDS[idx].guess[i])) {
+            console.log('correct letter wrong position', PLAYER_WORDS[idx].guess.charAt(i))
+
+        } else {
+            console.log('incorrect letter', PLAYER_WORDS[idx].guess.charAt(i));
+        }
     }
 }
+
 
 function render() {
 
 }
 
-function handleMove() {
+function handle() {
     updatePlayerWords();
     console.log(PLAYER_WORDS)
     console.log(playerGuess);
