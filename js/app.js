@@ -58,6 +58,7 @@ function initialize() {
     playerGuesses = 0;
     playerGuess = '';
     console.log(wordleWord);
+    console.log(typeof wordleWord);
 }
 
 function getWordleWord() {
@@ -93,7 +94,7 @@ function validateWord() {
 
 function compareWords() {
 
-    if (wordleWord === playerGuess) {
+    if (wordleWord === playerGuess.toLowerCase()) {
         win = true;
         console.log("You win!")
     } else {
@@ -107,6 +108,7 @@ function render() {
 function handleMove() {
     updatePlayerWords();
     console.log(PLAYER_WORDS)
+    console.log(playerGuess);
     //validateWord();  not acepting all words b/c player words have ''
     compareWords()
 
