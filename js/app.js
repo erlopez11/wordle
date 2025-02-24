@@ -22,7 +22,12 @@ let board;
 
 /*----- Cached Element References  -----*/
 const tiles = document.querySelectorAll('.tile');
-const tileContainer = document.querySelectorAll('.container');
+const rowOneTiles = document.querySelectorAll('.rowOneTile');
+const rowTwoTiles = document.querySelectorAll('.rowTwoTile');
+const rowThreeTiles = document.querySelectorAll('.rowThreeTile');
+const rowFourTiles = document.querySelectorAll('.rowFourTile');
+const rowFiveTiles = document.querySelectorAll('.rowFiveTile');
+const rowSixTiles = document.querySelectorAll('.rowSixTile');
 
 /*----------- Event Listeners ----------*/
 
@@ -134,7 +139,26 @@ function renderLetter() {
         return;
     }
 
-    tileContainer[playerGuesses].children[letterTotal].textContent = board[playerGuesses][letterTotal];
+    switch (playerGuesses) {
+        case 0:
+            rowOneTiles[letterTotal].textContent = board[playerGuesses][letterTotal];
+            break;
+        case 1:
+            rowTwoTiles[letterTotal].textContent = board[playerGuesses][letterTotal];
+            break;
+        case 2:
+            rowThreeTiles[letterTotal].textContent = board[playerGuesses][letterTotal];
+            break;
+        case 3:
+            rowFourTiles[letterTotal].textContent = board[playerGuesses][letterTotal];
+            break;
+        case 4:
+            rowFiveTiles[letterTotal].textContent = board[playerGuesses][letterTotal];
+            break;
+        case 5:
+            rowSixTiles[letterTotal].textContent = board[playerGuesses][letterTotal];
+            break;
+    }
 
     letterTotal += 1;
 }
