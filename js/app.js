@@ -20,6 +20,7 @@ let win;
 let board;
 
 
+
 /*----- Cached Element References  -----*/
 const tiles = document.querySelectorAll('.tile');
 const rowOneTiles = document.querySelectorAll('.rowOneTile');
@@ -28,6 +29,7 @@ const rowThreeTiles = document.querySelectorAll('.rowThreeTile');
 const rowFourTiles = document.querySelectorAll('.rowFourTile');
 const rowFiveTiles = document.querySelectorAll('.rowFiveTile');
 const rowSixTiles = document.querySelectorAll('.rowSixTile');
+const tileContainer = document.querySelectorAll('.container');
 
 /*----------- Event Listeners ----------*/
 
@@ -111,15 +113,19 @@ function compareWords() {
     }
 
     for (let i = 0; i < PLAYER_WORDS[idx].guess.length; i++) {
-        if (wordleWord[i] === PLAYER_WORDS[idx].guess.charAt(i)) {
+        console.log(PLAYER_WORDS[idx].guess[i]);
 
-            console.log('correct word, correct position', PLAYER_WORDS[idx].guess.charAt(i));
-        } else if (wordleWord[i].includes(PLAYER_WORDS[idx].guess[i])) {
-            console.log('correct letter wrong position', PLAYER_WORDS[idx].guess.charAt(i))
-
-        } else {
-            console.log('incorrect letter', PLAYER_WORDS[idx].guess.charAt(i));
+        if (PLAYER_WORDS[idx].guess[i].includes(wordleWord[i]) === false) {
+            console.log('working...')
+            tileContainer[idx].children[i].style.backgroundColor = "#354f5b";
         }
+    
+        if (wordleWord[i].includes(PLAYER_WORDS[idx].guess[i]) && wordleWord[i] === PLAYER_WORDS[idx].guess[i]) {
+            tileContainer[idx].children[i].style.backgroundColor = "#6cbd93";
+        } else {
+            tileContainer[idx].children[i].style.backgroundColor = "#f2c35e";
+        }
+        
     }
 }
 
@@ -163,7 +169,16 @@ function renderLetter() {
     letterTotal += 1;
 }
 
+/* function renderTileColorChange() {
+    let tile = tileContainer[playerGuesses].children[letterTotal];
+    
+    if (tileColor === 'green') {
+        tile.style.backgroundColor = "#6cbd93";
+    }
+} */
+
 function render() {
+
 }
 
 function handle() {
