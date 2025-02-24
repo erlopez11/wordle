@@ -12,7 +12,7 @@ const PLAYER_WORDS = [
 ]
 
 /*---------- Variables (state) ---------*/
-
+let letterTotal;
 let wordleWord;
 let playerGuesses;
 let playerGuess;
@@ -21,7 +21,8 @@ let board;
 
 
 /*----- Cached Element References  -----*/
-const tiles = document.querySelectorAll('.tile')
+const tiles = document.querySelectorAll('.tile');
+const tileContainer = document.querySelectorAll('.container');
 
 /*----------- Event Listeners ----------*/
 
@@ -30,6 +31,7 @@ document.getElementById('keyboard').addEventListener('click', (event) => {
     if (event.target.classList.contains('letterKey')) {
         addLetters(event.target.textContent);
         renderLetter();
+        console.log(board[playerGuesses][playerGuesses]);
 
     }
 
@@ -56,6 +58,7 @@ function initialize() {
     ]
     getWordleWord()
     win = false;
+    letterTotal = 0
     playerGuesses = 0;
     playerGuess = '';
     console.log(wordleWord);
@@ -123,16 +126,17 @@ function moveToNextRow() {
 
     playerGuesses += 1;
     playerGuess = '';
+    letterTotal = 0;
 }
 
 function renderLetter() {
-    board.forEach((word, index) => {
-        if (index === playerGuesses) {
-            word.forEach((letter, index) => {
-                tiles[index].textContent = letter;
-            })
-        }
-    })
+    if (letterTotal === 5) {
+        return;
+    }
+
+    tileContainer[playerGuesses].children[letterTotal].textContent = board[playerGuesses][letterTotal];
+
+    letterTotal += 1;
 }
 
 function render() {
