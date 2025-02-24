@@ -21,7 +21,7 @@ let board;
 
 
 /*----- Cached Element References  -----*/
-
+const tiles = document.querySelectorAll('.tile')
 
 /*----------- Event Listeners ----------*/
 
@@ -29,6 +29,7 @@ document.getElementById('keyboard').addEventListener('click', (event) => {
 
     if (event.target.classList.contains('letterKey')) {
         addLetters(event.target.textContent);
+        renderLetter();
 
     }
 
@@ -46,19 +47,18 @@ document.getElementById('keyboard').addEventListener('click', (event) => {
 
 function initialize() {
     board = [
-        null,
-        null,
-        null,
-        null,
-        null,
-        null
+        [],
+        [],
+        [],
+        [],
+        [],
+        []
     ]
     getWordleWord()
     win = false;
     playerGuesses = 0;
     playerGuess = '';
     console.log(wordleWord);
-    console.log(typeof wordleWord);
 }
 
 function getWordleWord() {
@@ -71,8 +71,10 @@ function addLetters(letter) {
     if (playerGuess.length !== 5) {
         if (playerGuess === '') {
             playerGuess += letter;
+            board[playerGuesses].push(letter);
         } else if (playerGuess !== '' && playerGuess.length < 5) {
             playerGuess += letter;
+            board[playerGuesses].push(letter);
         }
     }
 }
@@ -123,8 +125,17 @@ function moveToNextRow() {
     playerGuess = '';
 }
 
-function render() {
+function renderLetter() {
+    board.forEach((word, index) => {
+        if (index === playerGuesses) {
+            word.forEach((letter, index) => {
+                tiles[index].textContent = letter;
+            })
+        }
+    })
+}
 
+function render() {
 }
 
 function handle() {
@@ -134,11 +145,11 @@ function handle() {
     //validateWord();  not acepting all words b/c player words have ''
     compareWords();
     moveToNextRow();
+    render();
 
 }
 
 initialize()
-
 
 
 
