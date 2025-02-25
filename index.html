@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,6 +9,7 @@
     <script defer src="./js/app.js"></script>
     <title>Document</title>
 </head>
+
 <body>
     <header>
         <h1>WORDLE</h1>
@@ -16,42 +18,42 @@
 
     <main>
         <section id="board">
-            <div id ="guessOne" class="container">
+            <div id="guessOne" class="container">
                 <div class="tile rowOneTile"></div>
                 <div class="tile rowOneTile"></div>
                 <div class="tile rowOneTile"></div>
                 <div class="tile rowOneTile"></div>
                 <div class="tile rowOneTile"></div>
             </div>
-            <div id ="guessTwo" class="container">
+            <div id="guessTwo" class="container">
                 <div class="tile rowTwoTile"></div>
                 <div class="tile rowTwoTile"></div>
                 <div class="tile rowTwoTile"></div>
                 <div class="tile rowTwoTile"></div>
                 <div class="tile rowTwoTile"></div>
             </div>
-            <div id ="guessThree" class="container">
+            <div id="guessThree" class="container">
                 <div class="tile rowThreeTile"></div>
                 <div class="tile rowThreeTile"></div>
                 <div class="tile rowThreeTile"></div>
                 <div class="tile rowThreeTile"></div>
                 <div class="tile rowThreeTile"></div>
             </div>
-            <div id ="guessFour" class="container">
+            <div id="guessFour" class="container">
                 <div class="tile rowFourTile"></div>
                 <div class="tile rowFourTile"></div>
                 <div class="tile rowFourTile"></div>
                 <div class="tile rowFourTile"></div>
                 <div class="tile rowFourTile"></div>
             </div>
-            <div id ="guessFive" class="container">
+            <div id="guessFive" class="container">
                 <div class="tile rowFiveTile"></div>
                 <div class="tile rowFiveTile"></div>
                 <div class="tile rowFiveTile"></div>
                 <div class="tile rowFiveTile"></div>
                 <div class="tile rowFiveTile"></div>
             </div>
-            <div id ="guessSix" class="container">
+            <div id="guessSix" class="container">
                 <div class="tile rowSixTile"></div>
                 <div class="tile rowSixTile"></div>
                 <div class="tile rowSixTile"></div>
@@ -94,11 +96,34 @@
                 <button class="letterKey">N</button>
                 <button class="letterKey">M</button>
                 <!-- Add the backspace icon to delete button -->
-                <button class="delete">DL</button> 
+                <button class="delete">DL</button>
             </div>
         </section>
     </main>
 
+    <div class="overlay">
+        <div class="win-container overlayMessage">
+            <div class="messageContainer">
+                <h2>You Win!</h2>
+                <p class="guessesMade"></p>
+                <button class="playBtn">PLAY AGAIN</button>
+            </div>
+            <button class="close">X</button>
+        </div>
+
+        <div class="lost-container overlayMessage">
+            <div class="messageContainer">
+                <h2>You Lost</h2>
+                <p>The correct word was:</p>
+                <p class="correctWord"></p>
+                <button class="playBtn">PLAY AGAIN</button>
+            </div>
+            <button class="close">X</button>
+        </div>
+    </div>
+
+
 
 </body>
+
 </html>
