@@ -65,7 +65,7 @@ button {
     font-family: 'Dongle', sans-serif;
 }
 
-.overlay {
+#overlay {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -73,6 +73,7 @@ button {
     width: 100%;
     height: 100vh;
     background-color: rgba(3, 26, 47, .8);
+    display: none;
 }
 
 .overlayMessage {
@@ -81,41 +82,37 @@ button {
     justify-content: center;
     align-items: center;
     position: relative;
-    width: 50%;
-    height: 40%;
-    padding: 20px;
-}
-
-.lost-container {
-    display: none;
 }
 
 .messageContainer {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
+    justify-content: space-between;
     padding: 20px;
 }
 
-.close {
-    border-radius: 50%;
-    position: absolute;
-    top: 0;
-    right: 0;
-    margin: 10px;
-    padding: 20px;
-    width: 20px;
-    height: 20px;
+#close {
+  background-color: transparent;
+  border: 0;
+  width: 24px;
+  aspect-ratio: 1;
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin: 10px;
+}
+#close:hover {
+    color:#487d89;
 }
 
-.playBtn {
-    width: 50px;
+#playBtn {
+    width: 100px;
 }
 
 /* Media Queries */
 
-@media (max-width: 480px) {
+@media (max-width: 559px) {
     header {
         margin-top: 30px;
     }
@@ -139,6 +136,15 @@ button {
         font-size: 14px;
         width: 25px;
         min-height: 35px;
+    }
+
+    .overlayMessage {
+        width: 50%;
+        height: 40%;
+        padding: 20px;
+    }
+    .messageContainer {
+        height: 70%;
     }
 }
 
@@ -168,5 +174,14 @@ button {
         font-size: 24px;
         width: 35px;
         min-height: 45px;
+    }
+
+    .overlayMessage {
+        width: 300px;
+        height: 400px;
+        padding: 20px;
+    }
+    .messageContainer {
+        height: 70%;
     }
 }

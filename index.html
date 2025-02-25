@@ -5,6 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=close" />
     <script defer src="./js/words-list.js"></script>
     <script defer src="./js/app.js"></script>
     <title>Document</title>
@@ -101,24 +103,16 @@
         </section>
     </main>
 
-    <div class="overlay">
+    <div id="overlay">
         <div class="win-container overlayMessage">
             <div class="messageContainer">
-                <h2>You Win!</h2>
-                <p class="guessesMade"></p>
-                <button class="playBtn">PLAY AGAIN</button>
+                <h2 id="outcome"></h2>
+                <p id="message"></p>
+                <button id="playBtn">PLAY AGAIN</button>
             </div>
-            <button class="close">X</button>
-        </div>
-
-        <div class="lost-container overlayMessage">
-            <div class="messageContainer">
-                <h2>You Lost</h2>
-                <p>The correct word was:</p>
-                <p class="correctWord"></p>
-                <button class="playBtn">PLAY AGAIN</button>
-            </div>
-            <button class="close">X</button>
+            <button id="close">
+                <span class="material-symbols-outlined">close</span>
+            </button>
         </div>
     </div>
 

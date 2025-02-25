@@ -24,17 +24,40 @@ let board;
 
 /*----- Cached Element References  -----*/
 const tiles = document.querySelectorAll('.tile');
+
 const rowOneTiles = document.querySelectorAll('.rowOneTile');
 const rowTwoTiles = document.querySelectorAll('.rowTwoTile');
 const rowThreeTiles = document.querySelectorAll('.rowThreeTile');
 const rowFourTiles = document.querySelectorAll('.rowFourTile');
 const rowFiveTiles = document.querySelectorAll('.rowFiveTile');
 const rowSixTiles = document.querySelectorAll('.rowSixTile');
+
 const tileContainer = document.querySelectorAll('.container');
 const keysElement = document.querySelectorAll('.letterKey');
 
+const overlayElement = document.getElementById('overlay');
+const outcomeElement = document.getElementById('outcome');
+const messageElement = document.getElementById('message');
+
 
 /*----------- Event Listeners ----------*/
+function initialize() {
+    board = [
+        [],
+        [],
+        [],
+        [],
+        [],
+        []
+    ]
+    getWordleWord()
+    win = null;
+    letterTotal = 0
+    playerGuesses = 0;
+    playerGuess = '';
+    tileColor = [];
+    console.log(wordleWord);
+}
 
 document.getElementById('keyboard').addEventListener('click', (event) => {
 
@@ -53,26 +76,17 @@ document.getElementById('keyboard').addEventListener('click', (event) => {
     }
 })
 
+document.getElementById('close').addEventListener('click', function () {
+    overlayElement.style.display = 'none';
+});
+
+document.getElementById('playBtn').addEventListener('click', () => {
+    overlayElement.style.display = "none";
+    renderReset();
+    initialize();
+})
 
 /*-------------- Functions -------------*/
-
-function initialize() {
-    board = [
-        [],
-        [],
-        [],
-        [],
-        [],
-        []
-    ]
-    getWordleWord()
-    win = false;
-    letterTotal = 0
-    playerGuesses = 0;
-    playerGuess = '';
-    tileColor = [];
-    console.log(wordleWord);
-}
 
 function getWordleWord() {
     let randomIndex = Math.floor(Math.random() * WORD_LIST.length);
@@ -113,7 +127,6 @@ function compareWords() {
 
     if (wordleWord === playerGuess.toLowerCase()) {
         win = true;
-        console.log("You win!")
     }
 
     for (let i = 0; i < 5; i++) {
@@ -139,7 +152,7 @@ function compareWords() {
 
 function moveToNextRow() {
     if (playerGuesses === 5) {
-        console.log('End of the Game');
+        win = false;
     }
 
     playerGuesses += 1;
@@ -172,9 +185,18 @@ function renderLetter() {
         case 5:
             rowSixTiles[letterTotal].textContent = board[playerGuesses][letterTotal];
             break;
+        default:
+            tileContainer.children.textContent = '';
     }
 
     letterTotal += 1;
+}
+
+function renderReset() {
+    keysElement.forEach((key) => {
+        key.style.backgroundColor = '#f74ed';
+    })
+    tiles.textContent = '';
 }
 
 function renderKeyboradColor() {
@@ -190,6 +212,8 @@ function renderKeyboradColor() {
                     key.style.backgroundColor = '#f2c35e';
                 } else if (tileColor[letterColor] === 'grey') {
                     key.style.backgroundColor = '#354f5b';
+                } else {
+                    key.style.backgroundColor = '#f7f4ed';
                 }
             }
         }
@@ -197,7 +221,18 @@ function renderKeyboradColor() {
 
 }
 
-function render() {
+function renderMessages() {
+    if (win === true) {
+        overlayElement.style.display = 'flex';
+        outcomeElement.textContent = 'You Won! 🐋';
+        messageElement.textContent = `Guesses Made: ${playerGuesses}`;
+    } else if (win === false) {
+        overlayElement.style.display = 'flex';
+        outcomeElement.textContent = 'You Lost 🦐';
+        messageElement.textContent = `Wordle Word: ${wordleWord}`;
+    }
+
+
 }
 
 function handle() {
@@ -211,10 +246,8 @@ function handle() {
     //validateWord();  not acepting all words b/c player words have ''
     compareWords();
     renderKeyboradColor();
-    render();
     moveToNextRow();
-
-
+    renderMessages();
 }
 
 initialize()
