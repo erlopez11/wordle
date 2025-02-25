@@ -31,6 +31,7 @@ const rowFourTiles = document.querySelectorAll('.rowFourTile');
 const rowFiveTiles = document.querySelectorAll('.rowFiveTile');
 const rowSixTiles = document.querySelectorAll('.rowSixTile');
 const tileContainer = document.querySelectorAll('.container');
+const keysElement = document.querySelectorAll('.letterKey');
 
 
 /*----------- Event Listeners ----------*/
@@ -125,7 +126,7 @@ function compareWords() {
             if (wordleWord[i] === PLAYER_WORDS[idx].guess[i]) {
                 tileContainer[idx].children[i].style.backgroundColor = "#6cbd93";
                 tileColor.push('green')
-                
+
             } else {
                 tileContainer[idx].children[i].style.backgroundColor = "#f2c35e";
                 tileColor.push('yellow')
@@ -177,7 +178,22 @@ function renderLetter() {
 }
 
 function renderKeyboradColor() {
-    console.log(tileColor);
+
+    keysElement.forEach((key) => {
+        for (let i = 0; i < PLAYER_WORDS[playerGuesses].guess.length; i++) {
+            if (PLAYER_WORDS[playerGuesses].guess[i] === key.textContent.toLowerCase()) {
+                letterColor = PLAYER_WORDS[playerGuesses].guess.indexOf(PLAYER_WORDS[playerGuesses].guess[i]);
+
+                if (tileColor[letterColor] === 'green') {
+                    key.style.backgroundColor = '#6cbd93';
+                } else if (tileColor[letterColor] === 'yellow') {
+                    key.style.backgroundColor = '#f2c35e';
+                } else if (tileColor[letterColor] === 'grey') {
+                    key.style.backgroundColor = '#354f5b';
+                }
+            }
+        }
+    })
 
 }
 
@@ -195,8 +211,9 @@ function handle() {
     //validateWord();  not acepting all words b/c player words have ''
     compareWords();
     renderKeyboradColor();
-    moveToNextRow();
     render();
+    moveToNextRow();
+
 
 }
 
