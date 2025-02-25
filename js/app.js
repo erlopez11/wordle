@@ -194,9 +194,12 @@ function renderLetter() {
 
 function renderReset() {
     keysElement.forEach((key) => {
-        key.style.backgroundColor = '#f74ed';
+        key.style.backgroundColor = '#f7f4ed';
     })
-    tiles.textContent = '';
+    tiles.forEach((tile) => {
+        tile.style.backgroundColor = 'transparent';
+        tile.textContent = '';
+    })
 }
 
 function renderKeyboradColor() {
@@ -253,5 +256,5 @@ function handle() {
 initialize()
 
 
-
+console.dir(tiles);
 
