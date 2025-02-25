@@ -13,6 +13,7 @@ const PLAYER_WORDS = [
 
 /*---------- Variables (state) ---------*/
 let letterTotal;
+let tileColor;
 let wordleWord;
 let playerGuesses;
 let playerGuess;
@@ -30,6 +31,7 @@ const rowFourTiles = document.querySelectorAll('.rowFourTile');
 const rowFiveTiles = document.querySelectorAll('.rowFiveTile');
 const rowSixTiles = document.querySelectorAll('.rowSixTile');
 const tileContainer = document.querySelectorAll('.container');
+
 
 /*----------- Event Listeners ----------*/
 
@@ -67,6 +69,7 @@ function initialize() {
     letterTotal = 0
     playerGuesses = 0;
     playerGuess = '';
+    tileColor = [];
     console.log(wordleWord);
 }
 
@@ -116,11 +119,16 @@ function compareWords() {
         let letterIdx = wordleWord.indexOf(PLAYER_WORDS[idx].guess[i]);
         if (letterIdx === -1) {
             tileContainer[idx].children[i].style.backgroundColor = "#354f5b";
+            tileColor.push('grey');
+
         } else {
             if (wordleWord[i] === PLAYER_WORDS[idx].guess[i]) {
                 tileContainer[idx].children[i].style.backgroundColor = "#6cbd93";
+                tileColor.push('green')
+                
             } else {
                 tileContainer[idx].children[i].style.backgroundColor = "#f2c35e";
+                tileColor.push('yellow')
             }
         }
     }
@@ -136,6 +144,7 @@ function moveToNextRow() {
     playerGuesses += 1;
     playerGuess = '';
     letterTotal = 0;
+    tileColor = [];
 }
 
 function renderLetter() {
@@ -168,11 +177,11 @@ function renderLetter() {
 }
 
 function renderKeyboradColor() {
-    
+    console.log(tileColor);
+
 }
 
 function render() {
-
 }
 
 function handle() {
@@ -185,6 +194,7 @@ function handle() {
     }
     //validateWord();  not acepting all words b/c player words have ''
     compareWords();
+    renderKeyboradColor();
     moveToNextRow();
     render();
 
