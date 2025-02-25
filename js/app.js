@@ -38,7 +38,6 @@ document.getElementById('keyboard').addEventListener('click', (event) => {
     if (event.target.classList.contains('letterKey')) {
         addLetters(event.target.textContent);
         renderLetter();
-        console.log(board[playerGuesses][playerGuesses]);
 
     }
 
@@ -107,30 +106,29 @@ function validateWord() {
 function compareWords() {
     let idx = playerGuesses;
 
+
     if (wordleWord === playerGuess.toLowerCase()) {
         win = true;
         console.log("You win!")
     }
 
-    for (let i = 0; i < PLAYER_WORDS[idx].guess.length; i++) {
-        console.log(PLAYER_WORDS[idx].guess[i]);
-
-        if (PLAYER_WORDS[idx].guess[i].includes(wordleWord[i]) === false) {
-            console.log('working...')
+    for (let i = 0; i < 5; i++) {
+        let letterIdx = wordleWord.indexOf(PLAYER_WORDS[idx].guess[i]);
+        if (letterIdx === -1) {
             tileContainer[idx].children[i].style.backgroundColor = "#354f5b";
-        }
-    
-        if (wordleWord[i].includes(PLAYER_WORDS[idx].guess[i]) && wordleWord[i] === PLAYER_WORDS[idx].guess[i]) {
-            tileContainer[idx].children[i].style.backgroundColor = "#6cbd93";
         } else {
-            tileContainer[idx].children[i].style.backgroundColor = "#f2c35e";
+            if (wordleWord[i] === PLAYER_WORDS[idx].guess[i]) {
+                tileContainer[idx].children[i].style.backgroundColor = "#6cbd93";
+            } else {
+                tileContainer[idx].children[i].style.backgroundColor = "#f2c35e";
+            }
         }
-        
     }
+
+
 }
 
 function moveToNextRow() {
-    console.log(playerGuesses);
     if (playerGuesses === 5) {
         console.log('End of the Game');
     }
@@ -169,22 +167,22 @@ function renderLetter() {
     letterTotal += 1;
 }
 
-/* function renderTileColorChange() {
-    let tile = tileContainer[playerGuesses].children[letterTotal];
+function renderKeyboradColor() {
     
-    if (tileColor === 'green') {
-        tile.style.backgroundColor = "#6cbd93";
-    }
-} */
+}
 
 function render() {
 
 }
 
 function handle() {
+
     updatePlayerWords();
-    console.log(PLAYER_WORDS)
-    console.log(playerGuess);
+
+    if (PLAYER_WORDS[playerGuesses].guess.length < 5) {
+        console.log('Not a five letter word')
+        return;
+    }
     //validateWord();  not acepting all words b/c player words have ''
     compareWords();
     moveToNextRow();
