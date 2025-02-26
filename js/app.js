@@ -66,7 +66,7 @@ document.getElementById('keyboard').addEventListener('click', (event) => {
     }
 
     if (event.target.classList.contains('delete')) {
-
+        deleteLetters();
     }
 
     if (event.target.classList.contains('submit')) {
@@ -119,6 +119,46 @@ function addLetters(letter) {
             playerGuess += letter;
             board[playerGuesses].push(letter);
         }
+    }
+}
+
+function deleteLetters() {
+    board[playerGuesses].pop();
+    let deleteLetterGuess = playerGuess.slice(0, -1);
+    playerGuess = deleteLetterGuess;
+
+    if (letterTotal === 0) {
+        return;
+    } else {
+        switch (playerGuesses) {
+            case 0:
+                rowOneTiles[letterTotal - 1].textContent = '';
+                rowOneBackTiles[letterTotal - 1].textContent = '';
+                break;
+            case 1:
+                rowTwoTiles[letterTotal - 1].textContent = '';
+                rowTwoBackTiles[letterTotal - 1].textContent = '';
+                break;
+            case 2:
+                rowThreeTiles[letterTotal - 1].textContent = '';
+                rowThreeBackTiles[letterTotal - 1].textContent = '';
+                break;
+            case 3:
+                rowFourTiles[letterTotal - 1].textContent = '';
+                rowFourBackTiles[letterTotal - 1].textContent = '';
+                break;
+            case 4:
+                rowFiveTiles[letterTotal - 1].textContent = '';
+                rowFiveBackTiles[letterTotal - 1].textContent = '';
+                break;
+            case 5:
+                rowSixTiles[letterTotal - 1].textContent = '';
+                rowSixBackTiles[letterTotal - 1].textContent = '';
+                break;
+    
+        }
+
+        letterTotal -= 1;
     }
 }
 

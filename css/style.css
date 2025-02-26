@@ -45,7 +45,7 @@ main {
 #keyboard {
     display: flex;
     flex-direction: column;
-    align-items: center;
+    
 }
 
 .keyboardTop,
@@ -53,8 +53,22 @@ main {
 .keyboardBottom {
     display: flex;
     flex-direction: row;
-    justify-content: stretch;
     gap: 5px;
+}
+
+.keyboardMiddle {
+    justify-content: center;
+}
+
+.submit,
+.delete {
+    flex: 2 1;
+}
+
+.delete {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 
@@ -63,6 +77,10 @@ button {
     border: none;
     border-radius: 6px;
     font-family: 'Dongle', sans-serif;
+}
+
+button:hover {
+    background-color: #dbd9d5;
 }
 
 #overlay {
