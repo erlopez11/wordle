@@ -181,7 +181,7 @@ function compareWords() {
     let idx = playerGuesses;
 
 
-    if (wordleWord === playerGuess.toLowerCase()) {
+    if (wordleWord === PLAYER_WORDS[idx].guess) {
         win = true;
     }
 

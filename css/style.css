@@ -69,10 +69,12 @@ main {
     display: flex;
     justify-content: center;
     align-items: center;
+    color: #031a2f;
 }
 
 
 button {
+    color:#031a2f;
     background-color: #F7F4ED;
     border: none;
     border-radius: 6px;
@@ -111,6 +113,7 @@ button:hover {
 }
 
 #close {
+  color: #031a2f;
   background-color: transparent;
   border: 0;
   width: 24px;
