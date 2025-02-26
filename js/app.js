@@ -135,20 +135,18 @@ function compareWords() {
 
     for (let i = 0; i < 5; i++) {
         let letterIdx = wordleWord.indexOf(PLAYER_WORDS[idx].guess[i]);
+        console.log(card[idx]);
         if (letterIdx === -1) {
-            cardBack.style.backgroundColor = '#6cbd93';
-            //tileContainer[idx].children[i].style.backgroundColor = "#354f5b";
+            tileContainer[idx].children[i].style.backgroundColor = "#354f5b";
             tileColor.push('grey');
 
         } else {
             if (wordleWord[i] === PLAYER_WORDS[idx].guess[i]) {
-                cardBack.style.backgroundColor = '#6cbd93';
-                //tileContainer[idx].children[i].style.backgroundColor = "#6cbd93";
+                tileContainer[idx].children[i].style.backgroundColor = "#6cbd93";
                 tileColor.push('green')
 
             } else {
-                cardBack.style.backgroundColor = '#6cbd93';
-                //tileContainer[idx].children[i].style.backgroundColor = "#f2c35e";
+                tileContainer[idx].children[i].style.backgroundColor = "#f2c35e";
                 tileColor.push('yellow')
             }
         }
