@@ -110,7 +110,7 @@ button {
     width: 100px;
 }
 
-.flip-card {
+.card {
     background-color: transparent;
     width: 50px;
     height: 50px;
@@ -118,7 +118,7 @@ button {
     perspective: 1000px;
 }
 
-.flip-card-inner {
+.card-inner {
     outline: 1px solid black;
     position: relative;
     width: 100%;
@@ -128,8 +128,11 @@ button {
     transform-style: preserve-3d;
 }
 
-.flip-card-front,
-.flip-card-back {
+.card-front,
+.card-back {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     width: 50px;
     height: 50px;
     border-radius: 5px;
@@ -137,11 +140,11 @@ button {
     backface-visibility: hidden;
 }
 
-.flip-card-inner.isFlipped {
+.card-inner.isFlipped {
     transform: rotateY(180deg);
 } 
 
-.flip-card-back {
+.card-back {
     transform:rotateY(180deg);
 }
 

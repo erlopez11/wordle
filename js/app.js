@@ -38,8 +38,9 @@ const overlayElement = document.getElementById('overlay');
 const outcomeElement = document.getElementById('outcome');
 const messageElement = document.getElementById('message');
 
-const card = document.querySelector('.flip-card-inner');
-const tile = document.querySelector('.flip-card-back');
+const card = document.querySelectorAll('.card-inner');
+const tileBack = document.querySelectorAll('.tileBack');
+const cardBack = document.querySelectorAll('.card-Back')
 
 
 /*----------- Event Listeners ----------*/
@@ -84,7 +85,7 @@ function initialize() {
     ]
     getWordleWord()
     win = null;
-    letterTotal = 0
+    letterTotal = 0;
     playerGuesses = 0;
     playerGuess = '';
     tileColor = [];
@@ -135,17 +136,19 @@ function compareWords() {
     for (let i = 0; i < 5; i++) {
         let letterIdx = wordleWord.indexOf(PLAYER_WORDS[idx].guess[i]);
         if (letterIdx === -1) {
-            tileContainer[idx].children[i].style.backgroundColor = "#354f5b";
+            cardBack.style.backgroundColor = '#6cbd93';
+            //tileContainer[idx].children[i].style.backgroundColor = "#354f5b";
             tileColor.push('grey');
 
         } else {
             if (wordleWord[i] === PLAYER_WORDS[idx].guess[i]) {
-                tile.style.backgroundColor = '#6cbd93';
+                cardBack.style.backgroundColor = '#6cbd93';
                 //tileContainer[idx].children[i].style.backgroundColor = "#6cbd93";
                 tileColor.push('green')
 
             } else {
-                tileContainer[idx].children[i].style.backgroundColor = "#f2c35e";
+                cardBack.style.backgroundColor = '#6cbd93';
+                //tileContainer[idx].children[i].style.backgroundColor = "#f2c35e";
                 tileColor.push('yellow')
             }
         }
@@ -173,7 +176,7 @@ function renderLetter() {
     switch (playerGuesses) {
         case 0:
             rowOneTiles[letterTotal].textContent = board[playerGuesses][letterTotal];
-            tile.children[0].textContent = board[0][0]
+            tileBack[letterTotal].textContent = board[playerGuesses][letterTotal];
             break;
         case 1:
             rowTwoTiles[letterTotal].textContent = board[playerGuesses][letterTotal];
@@ -241,9 +244,10 @@ function renderReset() {
 }
 
 function flipTiles() {
-    console.log(card);
-    console.dir(card);
-    card.classList.toggle('isFlipped');
+    card.forEach((card) => {
+        card.classList.toggle('isFlipped');
+    })
+   
 }
 
 function handle() {
