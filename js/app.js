@@ -22,7 +22,6 @@ let board;
 
 
 /*----- Cached Element References  -----*/
-const tiles = document.querySelectorAll('.tile');
 
 const rowOneTiles = document.querySelectorAll('.rowOneTile');
 const rowTwoTiles = document.querySelectorAll('.rowTwoTile');
@@ -45,7 +44,6 @@ const rowFourBackTiles = document.querySelectorAll('.rowFourBack');
 const rowFiveBackTiles = document.querySelectorAll('.rowFiveBack');
 const rowSixBackTiles = document.querySelectorAll('.rowSixBack');
 
-const tileContainer = document.querySelectorAll('.container');
 const keysElement = document.querySelectorAll('.letterKey');
 
 const overlayElement = document.getElementById('overlay');
@@ -53,6 +51,8 @@ const outcomeElement = document.getElementById('outcome');
 const messageElement = document.getElementById('message');
 
 const card = document.querySelectorAll('.card-inner');
+const tileFront = document.querySelectorAll('.tileFront');
+const tileBack = document.querySelectorAll('.tileBack');
 
 
 /*----------- Event Listeners ----------*/
@@ -76,12 +76,11 @@ document.getElementById('keyboard').addEventListener('click', (event) => {
 
 document.getElementById('close').addEventListener('click', function () {
     overlayElement.style.display = 'none';
+    resetGame();
 });
 
 document.getElementById('playBtn').addEventListener('click', () => {
-    overlayElement.style.display = "none";
-    renderReset();
-    initialize();
+    resetGame();
 })
 
 /*-------------- Functions -------------*/
@@ -155,7 +154,7 @@ function deleteLetters() {
                 rowSixTiles[letterTotal - 1].textContent = '';
                 rowSixBackTiles[letterTotal - 1].textContent = '';
                 break;
-    
+
         }
 
         letterTotal -= 1;
@@ -171,8 +170,8 @@ function updatePlayerWords() {
 }
 
 function validateWord() {
-    if (!WORD_LIST.includes(playerGuess)) {
-        console.log('word not included');
+    if (WORD_LIST.indexOf(playerGuess) === -1) {
+        renderWordInvalid();
         return;
     }
 }
@@ -352,25 +351,42 @@ function renderKeyboradColor() {
 
 function renderMessages() {
     if (win === true) {
-        
-        overlayElement.style.display = 'flex';
-        outcomeElement.textContent = 'You Won! 🐋';
-        messageElement.textContent = `Guesses Made: ${playerGuesses}`;
+        setTimeout(function () {
+            overlayElement.style.display = 'flex';
+            outcomeElement.textContent = 'You Won! 🐋';
+            messageElement.textContent = `Guesses Made: ${playerGuesses}`;
+        }, 1000);
+
     } else if (win === false) {
-        overlayElement.style.display = 'flex';
-        outcomeElement.textContent = 'You Lost 🦐';
-        messageElement.textContent = `Wordle Word: ${wordleWord}`;
+        setTimeout(function () {
+            overlayElement.style.display = 'flex';
+            outcomeElement.textContent = 'You Lost 🦐';
+            messageElement.textContent = `Wordle Word: ${wordleWord}`;
+        }, 1000);
     }
 }
 
 function renderReset() {
     keysElement.forEach((key) => {
         key.style.backgroundColor = '#f7f4ed';
-    })
-    tiles.forEach((tile) => {
+    });
+    card.forEach((tile) => {
         tile.style.backgroundColor = 'transparent';
+        tile.classList.remove('isFlipped');
+    }); 
+    tileFront.forEach((tile) => {
+        tile.textContent = '';
+    });
+    tileBack.forEach((tile) => {
+        console.dir(tile);
         tile.textContent = '';
     })
+}
+
+function resetGame() {
+    overlayElement.style.display = "none";
+    renderReset();
+    initialize();
 }
 
 function flipTiles() {
@@ -378,32 +394,32 @@ function flipTiles() {
     switch (playerGuesses) {
         case 0:
             for (let i = 0; i < 5; i++) {
-                rowOneFlipTile[i].classList.toggle('isFlipped');
+                rowOneFlipTile[i].classList.add('isFlipped');
             }
             break;
         case 1:
             for (let i = 0; i < 5; i++) {
-                rowTwoFlipTile[i].classList.toggle('isFlipped');
+                rowTwoFlipTile[i].classList.add('isFlipped');
             }
             break;
         case 2:
             for (let i = 0; i < 5; i++) {
-                rowThreeFlipTile[i].classList.toggle('isFlipped');
+                rowThreeFlipTile[i].classList.add('isFlipped');
             }
             break;
         case 3:
             for (let i = 0; i < 5; i++) {
-                rowFourFlipTile[i].classList.toggle('isFlipped');
+                rowFourFlipTile[i].classList.add('isFlipped');
             }
             break;
         case 4:
             for (let i = 0; i < 5; i++) {
-                rowFiveFlipTile[i].classList.toggle('isFlipped');
+                rowFiveFlipTile[i].classList.add('isFlipped');
             }
             break;
         case 5:
             for (let i = 0; i < 5; i++) {
-                rowSixFlipTile[i].classList.toggle('isFlipped');
+                rowSixFlipTile[i].classList.add('isFlipped');
             }
             break;
 
@@ -412,18 +428,18 @@ function flipTiles() {
 
 function renderAlertLetters() {
     document.getElementById('alertMessageLetters').style.display = 'flex';
-    setTimeout(function(){
+    setTimeout(function () {
         document.getElementById('alertMessageLetters').style.display = 'none';
     }, 1000);
-    
+
 }
 
 function renderWordInvalid() {
     document.getElementById('alertWordInvalid').style.display = 'flex';
-    setTimeout(function(){
+    setTimeout(function () {
         document.getElementById('alertWordInvalid').style.display = 'none';
     }, 1000);
-    
+
 }
 
 function handle() {
@@ -431,9 +447,9 @@ function handle() {
         renderAlertLetters();
         return;
     }
+    validateWord();
     flipTiles();
     updatePlayerWords();
-    //validateWord();
     compareWords();
     renderKeyboradColor();
     moveToNextRow();
