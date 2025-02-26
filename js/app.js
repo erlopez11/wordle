@@ -31,6 +31,20 @@ const rowFourTiles = document.querySelectorAll('.rowFourTile');
 const rowFiveTiles = document.querySelectorAll('.rowFiveTile');
 const rowSixTiles = document.querySelectorAll('.rowSixTile');
 
+const rowOneFlipTile = document.querySelectorAll('.rowOneFlipTile');
+const rowTwoFlipTile = document.querySelectorAll('.rowTwoFlipTile');
+const rowThreeFlipTile = document.querySelectorAll('.rowThreeFlipTile');
+const rowFourFlipTile = document.querySelectorAll('.rowFourFlipTile');
+const rowFiveFlipTile = document.querySelectorAll('.rowFiveFlipTile');
+const rowSixFlipTile = document.querySelectorAll('.rowSixFlipTile');
+
+const rowOneBackTiles = document.querySelectorAll('.rowOneBack');
+const rowTwoBackTiles = document.querySelectorAll('.rowTwoBack');
+const rowThreeBackTiles = document.querySelectorAll('.rowThreeBack');
+const rowFourBackTiles = document.querySelectorAll('.rowFourBack');
+const rowFiveBackTiles = document.querySelectorAll('.rowFiveBack');
+const rowSixBackTiles = document.querySelectorAll('.rowSixBack');
+
 const tileContainer = document.querySelectorAll('.container');
 const keysElement = document.querySelectorAll('.letterKey');
 
@@ -135,7 +149,7 @@ function compareWords() {
 
     for (let i = 0; i < 5; i++) {
         let letterIdx = wordleWord.indexOf(PLAYER_WORDS[idx].guess[i]);
-        
+
 
         if (letterIdx === -1) {
             card[i].children[1].style.backgroundColor = '#354f5b';
@@ -178,22 +192,27 @@ function renderLetter() {
     switch (playerGuesses) {
         case 0:
             rowOneTiles[letterTotal].textContent = board[playerGuesses][letterTotal];
-            tileBack[letterTotal].textContent = board[playerGuesses][letterTotal];
+            rowOneBackTiles[letterTotal].textContent = board[playerGuesses][letterTotal];
             break;
         case 1:
             rowTwoTiles[letterTotal].textContent = board[playerGuesses][letterTotal];
+            rowTwoBackTiles[letterTotal].textContent = board[playerGuesses][letterTotal];
             break;
         case 2:
             rowThreeTiles[letterTotal].textContent = board[playerGuesses][letterTotal];
+            rowThreeBackTiles[letterTotal].textContent = board[playerGuesses][letterTotal];
             break;
         case 3:
             rowFourTiles[letterTotal].textContent = board[playerGuesses][letterTotal];
+            rowFourBackTiles[letterTotal].textContent = board[playerGuesses][letterTotal];
             break;
         case 4:
             rowFiveTiles[letterTotal].textContent = board[playerGuesses][letterTotal];
+            rowFiveBackTiles[letterTotal].textContent = board[playerGuesses][letterTotal];
             break;
         case 5:
             rowSixTiles[letterTotal].textContent = board[playerGuesses][letterTotal];
+            rowSixBackTiles[letterTotal].textContent = board[playerGuesses][letterTotal];
             break;
 
     }
@@ -246,10 +265,40 @@ function renderReset() {
 }
 
 function flipTiles() {
-    card.forEach((card) => {
-        card.classList.toggle('isFlipped');
-    })
 
+    switch (playerGuesses) {
+        case 0:
+            for (let i = 0; i < 5; i++) {
+                rowOneFlipTile[i].classList.toggle('isFlipped');
+            }
+            break;
+        case 1:
+            for (let i = 0; i < 5; i++) {
+                rowTwoFlipTile[i].classList.toggle('isFlipped');
+            }
+            break;
+        case 2:
+            for (let i = 0; i < 5; i++) {
+                rowThreeFlipTile[i].classList.toggle('isFlipped');
+            }
+            break;
+        case 3:
+            for (let i = 0; i < 5; i++) {
+                rowFourFlipTile[i].classList.toggle('isFlipped');
+            }
+            break;
+        case 4:
+            for (let i = 0; i < 5; i++) {
+                rowFiveFlipTile[i].classList.toggle('isFlipped');
+            }
+            break;
+        case 5:
+            for (let i = 0; i < 5; i++) {
+                rowSixFlipTile[i].classList.toggle('isFlipped');
+            }
+            break;
+
+    }
 }
 
 function handle() {
