@@ -352,6 +352,7 @@ function renderKeyboradColor() {
 
 function renderMessages() {
     if (win === true) {
+        
         overlayElement.style.display = 'flex';
         outcomeElement.textContent = 'You Won! 🐋';
         messageElement.textContent = `Guesses Made: ${playerGuesses}`;
@@ -409,15 +410,30 @@ function flipTiles() {
     }
 }
 
-function handle() {
-    flipTiles();
-    updatePlayerWords();
+function renderAlertLetters() {
+    document.getElementById('alertMessageLetters').style.display = 'flex';
+    setTimeout(function(){
+        document.getElementById('alertMessageLetters').style.display = 'none';
+    }, 1000);
+    
+}
 
-    if (PLAYER_WORDS[playerGuesses].guess.length < 5) {
-        console.log('Not a five letter word')
+function renderWordInvalid() {
+    document.getElementById('alertWordInvalid').style.display = 'flex';
+    setTimeout(function(){
+        document.getElementById('alertWordInvalid').style.display = 'none';
+    }, 1000);
+    
+}
+
+function handle() {
+    if (letterTotal < 5) {
+        renderAlertLetters();
         return;
     }
-    //validateWord();  not acepting all words b/c player words have ''
+    flipTiles();
+    updatePlayerWords();
+    //validateWord();
     compareWords();
     renderKeyboradColor();
     moveToNextRow();
