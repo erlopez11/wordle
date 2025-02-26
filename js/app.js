@@ -1,6 +1,5 @@
 
 /*-------------- Constants -------------*/
-const MAX_GUESSES = 6;
 
 const PLAYER_WORDS = [
     { guess: null },
@@ -39,25 +38,10 @@ const overlayElement = document.getElementById('overlay');
 const outcomeElement = document.getElementById('outcome');
 const messageElement = document.getElementById('message');
 
+const card = document.querySelector('.flip-card-inner');
+
 
 /*----------- Event Listeners ----------*/
-function initialize() {
-    board = [
-        [],
-        [],
-        [],
-        [],
-        [],
-        []
-    ]
-    getWordleWord()
-    win = null;
-    letterTotal = 0
-    playerGuesses = 0;
-    playerGuess = '';
-    tileColor = [];
-    console.log(wordleWord);
-}
 
 document.getElementById('keyboard').addEventListener('click', (event) => {
 
@@ -87,6 +71,24 @@ document.getElementById('playBtn').addEventListener('click', () => {
 })
 
 /*-------------- Functions -------------*/
+
+function initialize() {
+    board = [
+        [],
+        [],
+        [],
+        [],
+        [],
+        []
+    ]
+    getWordleWord()
+    win = null;
+    letterTotal = 0
+    playerGuesses = 0;
+    playerGuess = '';
+    tileColor = [];
+    console.log(wordleWord);
+}
 
 function getWordleWord() {
     let randomIndex = Math.floor(Math.random() * WORD_LIST.length);
@@ -132,16 +134,16 @@ function compareWords() {
     for (let i = 0; i < 5; i++) {
         let letterIdx = wordleWord.indexOf(PLAYER_WORDS[idx].guess[i]);
         if (letterIdx === -1) {
-            tileContainer[idx].children[i].style.backgroundColor = "#354f5b";
+            //tileContainer[idx].children[i].style.backgroundColor = "#354f5b";
             tileColor.push('grey');
 
         } else {
             if (wordleWord[i] === PLAYER_WORDS[idx].guess[i]) {
-                tileContainer[idx].children[i].style.backgroundColor = "#6cbd93";
+                //tileContainer[idx].children[i].style.backgroundColor = "#6cbd93";
                 tileColor.push('green')
 
             } else {
-                tileContainer[idx].children[i].style.backgroundColor = "#f2c35e";
+                //tileContainer[idx].children[i].style.backgroundColor = "#f2c35e";
                 tileColor.push('yellow')
             }
         }
@@ -185,21 +187,10 @@ function renderLetter() {
         case 5:
             rowSixTiles[letterTotal].textContent = board[playerGuesses][letterTotal];
             break;
-        default:
-            tileContainer.children.textContent = '';
+        
     }
 
     letterTotal += 1;
-}
-
-function renderReset() {
-    keysElement.forEach((key) => {
-        key.style.backgroundColor = '#f7f4ed';
-    })
-    tiles.forEach((tile) => {
-        tile.style.backgroundColor = 'transparent';
-        tile.textContent = '';
-    })
 }
 
 function renderKeyboradColor() {
@@ -234,12 +225,26 @@ function renderMessages() {
         outcomeElement.textContent = 'You Lost 🦐';
         messageElement.textContent = `Wordle Word: ${wordleWord}`;
     }
+}
 
+function renderReset() {
+    keysElement.forEach((key) => {
+        key.style.backgroundColor = '#f7f4ed';
+    })
+    tiles.forEach((tile) => {
+        tile.style.backgroundColor = 'transparent';
+        tile.textContent = '';
+    })
+}
 
+function flipTiles() {
+    console.log(card);
+    console.dir(card);
+    card.classList.toggle('isFlipped');
 }
 
 function handle() {
-
+    flipTiles();
     updatePlayerWords();
 
     if (PLAYER_WORDS[playerGuesses].guess.length < 5) {
@@ -256,5 +261,4 @@ function handle() {
 initialize()
 
 
-console.dir(tiles);
 
