@@ -53,8 +53,6 @@ const outcomeElement = document.getElementById('outcome');
 const messageElement = document.getElementById('message');
 
 const card = document.querySelectorAll('.card-inner');
-const tileBack = document.querySelectorAll('.tileBack');
-const cardBack = document.querySelectorAll('.card-Back')
 
 
 /*----------- Event Listeners ----------*/
@@ -152,25 +150,95 @@ function compareWords() {
 
 
         if (letterIdx === -1) {
-            card[i].children[1].style.backgroundColor = '#354f5b';
-            //tileContainer[idx].children[i].style.backgroundColor = "#354f5b";
-            tileColor.push('grey');
+
+            switch (playerGuesses) {
+                case 0:
+                    rowOneBackTiles[i].style.backgroundColor = '#354f5b';
+                    tileColor.push('grey');
+                    break;
+                case 1:
+                    rowTwoBackTiles[i].style.backgroundColor = '#354f5b';
+                    tileColor.push('grey');
+                    break;
+                case 2:
+                    rowThreeBackTiles[i].style.backgroundColor = '#354f5b';
+                    tileColor.push('grey');
+                    break;
+                case 3:
+                    rowFourBackTiles[i].style.backgroundColor = '#354f5b';
+                    tileColor.push('grey');
+                    break;
+                case 4:
+                    rowFiveBackTiles[i].style.backgroundColor = '#354f5b';
+                    tileColor.push('grey');
+                    break;
+                case 5:
+                    rowSixBackTiles[i].style.backgroundColor = '#354f5b';
+                    tileColor.push('grey');
+                    break;
+            }
 
         } else {
             if (wordleWord[i] === PLAYER_WORDS[idx].guess[i]) {
-                card[i].children[1].style.backgroundColor = '#6cbd93';
-                //tileContainer[idx].children[i].style.backgroundColor = "#6cbd93";
-                tileColor.push('green')
+
+                switch (playerGuesses) {
+                    case 0:
+                        rowOneBackTiles[i].style.backgroundColor = '#6cbd93';
+                        tileColor.push('green');
+                        break;
+                    case 1:
+                        rowTwoBackTiles[i].style.backgroundColor = '#6cbd93';
+                        tileColor.push('green');
+                        break;
+                    case 2:
+                        rowThreeBackTiles[i].style.backgroundColor = '#6cbd93';
+                        tileColor.push('green');
+                        break;
+                    case 3:
+                        rowFourBackTiles[i].style.backgroundColor = '#6cbd93';
+                        tileColor.push('green');
+                        break;
+                    case 4:
+                        rowFiveBackTiles[i].style.backgroundColor = '#6cbd93';
+                        tileColor.push('green');
+                        break;
+                    case 5:
+                        rowSixBackTiles[i].style.backgroundColor = '#6cbd93';
+                        tileColor.push('green');
+                        break;
+                }
 
             } else {
-                card[i].children[1].style.backgroundColor = "#f2c35e";
-                //tileContainer[idx].children[i].style.backgroundColor = "#f2c35e";
-                tileColor.push('yellow')
+
+                switch (playerGuesses) {
+                    case 0:
+                        rowOneBackTiles[i].style.backgroundColor = '#f2c35e';
+                        tileColor.push('yellow');
+                        break;
+                    case 1:
+                        rowTwoBackTiles[i].style.backgroundColor = '#f2c35e';
+                        tileColor.push('yellow');
+                        break;
+                    case 2:
+                        rowThreeBackTiles[i].style.backgroundColor = '#f2c35e';
+                        tileColor.push('yellow');
+                        break;
+                    case 3:
+                        rowFourBackTiles[i].style.backgroundColor = '#f2c35e';
+                        tileColor.push('yellow');
+                        break;
+                    case 4:
+                        rowFiveBackTiles[i].style.backgroundColor = '#f2c35e';
+                        tileColor.push('yellow');
+                        break;
+                    case 5:
+                        rowSixBackTiles[i].style.backgroundColor = '#f2c35e';
+                        tileColor.push('yellow');
+                        break;
+                }
             }
         }
     }
-
-
 }
 
 function moveToNextRow() {
