@@ -39,6 +39,7 @@ const outcomeElement = document.getElementById('outcome');
 const messageElement = document.getElementById('message');
 
 const card = document.querySelector('.flip-card-inner');
+const tile = document.querySelector('.flip-card-back');
 
 
 /*----------- Event Listeners ----------*/
@@ -139,7 +140,8 @@ function compareWords() {
 
         } else {
             if (wordleWord[i] === PLAYER_WORDS[idx].guess[i]) {
-                tileContainer[idx].children[i].style.backgroundColor = "#6cbd93";
+                tile.style.backgroundColor = '#6cbd93';
+                //tileContainer[idx].children[i].style.backgroundColor = "#6cbd93";
                 tileColor.push('green')
 
             } else {
@@ -171,6 +173,7 @@ function renderLetter() {
     switch (playerGuesses) {
         case 0:
             rowOneTiles[letterTotal].textContent = board[playerGuesses][letterTotal];
+            tile.children[0].textContent = board[0][0]
             break;
         case 1:
             rowTwoTiles[letterTotal].textContent = board[playerGuesses][letterTotal];
