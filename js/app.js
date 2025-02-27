@@ -284,7 +284,7 @@ function compareWords() {
 }
 
 function moveToNextRow() {
-    if (playerGuesses === 6) {
+    if (playerGuesses === 5 && wordleWord !== PLAYER_WORDS[5].guess) {
         win = false;
     }
 
