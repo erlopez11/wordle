@@ -356,14 +356,14 @@ function renderMessages() {
     if (win === true) {
         setTimeout(function () {
             overlayElement.style.display = 'flex';
-            outcomeElement.textContent = 'You Won! 🐋';
+            outcomeElement.textContent = 'You Won! 🌙';
             messageElement.textContent = `Guesses Made: ${playerGuesses}`;
         }, 1000);
 
     } else if (win === false) {
         setTimeout(function () {
             overlayElement.style.display = 'flex';
-            outcomeElement.textContent = 'You Lost 🦐';
+            outcomeElement.textContent = 'You Lost ⛈️';
             messageElement.textContent = `Wordle Word: ${wordleWord}`;
         }, 1000);
     }
