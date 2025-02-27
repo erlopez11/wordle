@@ -8,7 +8,7 @@
 
 body {
     background-color: #87bab6;
-    background-image: linear-gradient(#9fc6dd, #487d89, #031a2f);
+    background-image: linear-gradient(#031a2f,#487d89);
     color: #031a2f;
     font-family: 'Dongle', sans-serif;
     min-height: 100vh;
@@ -31,8 +31,13 @@ header {
     gap: 20px;
 }
 
+h1 {
+    color: #cddcdf;
+}
+
 .tile {
     font-size: 20px;
+    background-color: rgba(205, 220, 223, .5);
     border: 2px solid #cddcdf;
     border-radius: 5px;
     display: flex;
@@ -106,6 +111,7 @@ button:hover {
     height: 100vh;
     background-color: rgba(3, 26, 47, .8);
     display: none;
+    transition: display 5s ease ;
 }
 
 .overlayMessage {
@@ -115,7 +121,6 @@ button:hover {
     align-items: center;
     position: relative;
     border-radius: 5px;
-    ;
 }
 
 .messageContainer {
@@ -139,6 +144,7 @@ button:hover {
     justify-content: center;
     line-height: 15px;
 }
+
 .instructionsText p {
     margin-top: 10px;
 }
@@ -149,6 +155,7 @@ button:hover {
     border-radius: 5px;
     margin-top: 10px;
 }
+
 .tileInfo {
     display: flex;
     justify-content: space-between;
@@ -210,6 +217,7 @@ button:hover {
 
 #instructionsBtn {
     background-color: transparent;
+    color: #cddcdf;
     border: 0;
     display: flex;
     justify-content: flex-start;
@@ -221,7 +229,7 @@ button:hover {
 }
 
 #instructionsBtn:hover {
-    color:#487d89;
+    color: #487d89;
 }
 
 #playBtn {
@@ -340,29 +348,32 @@ button:hover {
         height: 40px;
 
     }
+
     .tileFront {
         width: 40px;
         height: 40px;
     }
+
     .instructionsContainer {
         background-color: #cddcdf;
         width: 70%;
         border-radius: 5px;
         padding: 20px;
     }
-    
+
     .tileContainer {
         padding: 8px;
     }
+
     .tileInfo {
         padding: 8px;
     }
-    
+
     .demo-tile {
         width: 24px;
-        height: 24px;  
+        height: 24px;
     }
-   
+
 }
 
 @media (min-width: 560px) {
@@ -433,10 +444,12 @@ button:hover {
         width: 50px;
         height: 50px;
     }
+
     .tileFront {
         width: 50px;
         height: 50px;
     }
+
     .instructionsContainer {
         background-color: #cddcdf;
         width: 300px;
@@ -444,16 +457,17 @@ button:hover {
         border-radius: 5px;
         padding: 40px;
     }
-    
+
     .tileContainer {
         padding: 8px;
     }
+
     .tileInfo {
         padding: 8px;
     }
-    
+
     .demo-tile {
         width: 24px;
-        height: 24px;  
+        height: 24px;
     }
 }

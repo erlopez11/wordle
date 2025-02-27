@@ -23,26 +23,26 @@ let board;
 
 /*----- Cached Element References  -----*/
 
-const rowOneTiles = document.querySelectorAll('.rowOneTile');
-const rowTwoTiles = document.querySelectorAll('.rowTwoTile');
-const rowThreeTiles = document.querySelectorAll('.rowThreeTile');
-const rowFourTiles = document.querySelectorAll('.rowFourTile');
-const rowFiveTiles = document.querySelectorAll('.rowFiveTile');
-const rowSixTiles = document.querySelectorAll('.rowSixTile');
+const rowOneTilesEl = document.querySelectorAll('.rowOneTile');
+const rowTwoTilesEl = document.querySelectorAll('.rowTwoTile');
+const rowThreeTilesEl = document.querySelectorAll('.rowThreeTile');
+const rowFourTilesEl = document.querySelectorAll('.rowFourTile');
+const rowFiveTilesEl = document.querySelectorAll('.rowFiveTile');
+const rowSixTilesEl = document.querySelectorAll('.rowSixTile');
 
-const rowOneFlipTile = document.querySelectorAll('.rowOneFlipTile');
-const rowTwoFlipTile = document.querySelectorAll('.rowTwoFlipTile');
-const rowThreeFlipTile = document.querySelectorAll('.rowThreeFlipTile');
-const rowFourFlipTile = document.querySelectorAll('.rowFourFlipTile');
-const rowFiveFlipTile = document.querySelectorAll('.rowFiveFlipTile');
-const rowSixFlipTile = document.querySelectorAll('.rowSixFlipTile');
+const rowOneFlipTileEl = document.querySelectorAll('.rowOneFlipTile');
+const rowTwoFlipTileEl = document.querySelectorAll('.rowTwoFlipTile');
+const rowThreeFlipTileEl = document.querySelectorAll('.rowThreeFlipTile');
+const rowFourFlipTileEl = document.querySelectorAll('.rowFourFlipTile');
+const rowFiveFlipTileEl = document.querySelectorAll('.rowFiveFlipTile');
+const rowSixFlipTileEl = document.querySelectorAll('.rowSixFlipTile');
 
-const rowOneBackTiles = document.querySelectorAll('.rowOneBack');
-const rowTwoBackTiles = document.querySelectorAll('.rowTwoBack');
-const rowThreeBackTiles = document.querySelectorAll('.rowThreeBack');
-const rowFourBackTiles = document.querySelectorAll('.rowFourBack');
-const rowFiveBackTiles = document.querySelectorAll('.rowFiveBack');
-const rowSixBackTiles = document.querySelectorAll('.rowSixBack');
+const rowOneBackTilesEl = document.querySelectorAll('.rowOneBack');
+const rowTwoBackTilesEl = document.querySelectorAll('.rowTwoBack');
+const rowThreeBackTilesEl = document.querySelectorAll('.rowThreeBack');
+const rowFourBackTilesEl = document.querySelectorAll('.rowFourBack');
+const rowFiveBackTilesEl = document.querySelectorAll('.rowFiveBack');
+const rowSixBackTilesEl = document.querySelectorAll('.rowSixBack');
 
 const keysElement = document.querySelectorAll('.letterKey');
 
@@ -50,12 +50,12 @@ const overlayElement = document.getElementById('overlay');
 const instructionsOverlayElement = document.getElementById('instructionsOverlay');
 const outcomeElement = document.getElementById('outcome');
 const messageElement = document.getElementById('message');
-const instructionsClose = document.getElementById('instructionsClose');
-const finalMessageClose = document.getElementById('close');
+const instructionsCloseEl = document.getElementById('instructionsClose');
+const finalMessageCloseEl = document.getElementById('close');
 
-const card = document.querySelectorAll('.card-inner');
-const tileFront = document.querySelectorAll('.tileFront');
-const tileBack = document.querySelectorAll('.tileBack');
+const cardEl = document.querySelectorAll('.card-inner');
+const tileFrontEl = document.querySelectorAll('.tileFront');
+const tileBackEl = document.querySelectorAll('.tileBack');
 
 
 /*----------- Event Listeners ----------*/
@@ -77,7 +77,7 @@ document.getElementById('keyboard').addEventListener('click', (event) => {
     }
 })
 
-finalMessageClose.addEventListener('click', function () {
+finalMessageCloseEl.addEventListener('click', function () {
     overlayElement.style.display = 'none';
     resetGame();
 });
@@ -90,7 +90,7 @@ document.getElementById('instructionsBtn').addEventListener('click', () => {
     instructionsOverlayElement.style.display = 'flex';
 })
 
-instructionsClose.addEventListener('click', function () {
+instructionsCloseEl.addEventListener('click', function () {
     instructionsOverlayElement.style.display = 'none';
 });
 
@@ -141,28 +141,28 @@ function deleteLetters() {
     } else {
         switch (playerGuesses) {
             case 0:
-                rowOneTiles[letterTotal - 1].textContent = '';
-                rowOneBackTiles[letterTotal - 1].textContent = '';
+                rowOneTilesEl[letterTotal - 1].textContent = '';
+                rowOneBackTilesEl[letterTotal - 1].textContent = '';
                 break;
             case 1:
-                rowTwoTiles[letterTotal - 1].textContent = '';
-                rowTwoBackTiles[letterTotal - 1].textContent = '';
+                rowTwoTilesEl[letterTotal - 1].textContent = '';
+                rowTwoBackTilesEl[letterTotal - 1].textContent = '';
                 break;
             case 2:
-                rowThreeTiles[letterTotal - 1].textContent = '';
-                rowThreeBackTiles[letterTotal - 1].textContent = '';
+                rowThreeTilesEl[letterTotal - 1].textContent = '';
+                rowThreeBackTilesEl[letterTotal - 1].textContent = '';
                 break;
             case 3:
-                rowFourTiles[letterTotal - 1].textContent = '';
-                rowFourBackTiles[letterTotal - 1].textContent = '';
+                rowFourTilesEl[letterTotal - 1].textContent = '';
+                rowFourBackTilesEl[letterTotal - 1].textContent = '';
                 break;
             case 4:
-                rowFiveTiles[letterTotal - 1].textContent = '';
-                rowFiveBackTiles[letterTotal - 1].textContent = '';
+                rowFiveTilesEl[letterTotal - 1].textContent = '';
+                rowFiveBackTilesEl[letterTotal - 1].textContent = '';
                 break;
             case 5:
-                rowSixTiles[letterTotal - 1].textContent = '';
-                rowSixBackTiles[letterTotal - 1].textContent = '';
+                rowSixTilesEl[letterTotal - 1].textContent = '';
+                rowSixBackTilesEl[letterTotal - 1].textContent = '';
                 break;
 
         }
@@ -195,27 +195,27 @@ function compareWords() {
 
             switch (playerGuesses) {
                 case 0:
-                    rowOneBackTiles[i].style.backgroundColor = '#354f5b';
+                    rowOneBackTilesEl[i].style.backgroundColor = '#354f5b';
                     tileColor.push('grey');
                     break;
                 case 1:
-                    rowTwoBackTiles[i].style.backgroundColor = '#354f5b';
+                    rowTwoBackTilesEl[i].style.backgroundColor = '#354f5b';
                     tileColor.push('grey');
                     break;
                 case 2:
-                    rowThreeBackTiles[i].style.backgroundColor = '#354f5b';
+                    rowThreeBackTilesEl[i].style.backgroundColor = '#354f5b';
                     tileColor.push('grey');
                     break;
                 case 3:
-                    rowFourBackTiles[i].style.backgroundColor = '#354f5b';
+                    rowFourBackTilesEl[i].style.backgroundColor = '#354f5b';
                     tileColor.push('grey');
                     break;
                 case 4:
-                    rowFiveBackTiles[i].style.backgroundColor = '#354f5b';
+                    rowFiveBackTilesEl[i].style.backgroundColor = '#354f5b';
                     tileColor.push('grey');
                     break;
                 case 5:
-                    rowSixBackTiles[i].style.backgroundColor = '#354f5b';
+                    rowSixBackTilesEl[i].style.backgroundColor = '#354f5b';
                     tileColor.push('grey');
                     break;
             }
@@ -225,27 +225,27 @@ function compareWords() {
 
                 switch (playerGuesses) {
                     case 0:
-                        rowOneBackTiles[i].style.backgroundColor = '#6cbd93';
+                        rowOneBackTilesEl[i].style.backgroundColor = '#6cbd93';
                         tileColor.push('green');
                         break;
                     case 1:
-                        rowTwoBackTiles[i].style.backgroundColor = '#6cbd93';
+                        rowTwoBackTilesEl[i].style.backgroundColor = '#6cbd93';
                         tileColor.push('green');
                         break;
                     case 2:
-                        rowThreeBackTiles[i].style.backgroundColor = '#6cbd93';
+                        rowThreeBackTilesEl[i].style.backgroundColor = '#6cbd93';
                         tileColor.push('green');
                         break;
                     case 3:
-                        rowFourBackTiles[i].style.backgroundColor = '#6cbd93';
+                        rowFourBackTilesEl[i].style.backgroundColor = '#6cbd93';
                         tileColor.push('green');
                         break;
                     case 4:
-                        rowFiveBackTiles[i].style.backgroundColor = '#6cbd93';
+                        rowFiveBackTilesEl[i].style.backgroundColor = '#6cbd93';
                         tileColor.push('green');
                         break;
                     case 5:
-                        rowSixBackTiles[i].style.backgroundColor = '#6cbd93';
+                        rowSixBackTilesEl[i].style.backgroundColor = '#6cbd93';
                         tileColor.push('green');
                         break;
                 }
@@ -254,27 +254,27 @@ function compareWords() {
 
                 switch (playerGuesses) {
                     case 0:
-                        rowOneBackTiles[i].style.backgroundColor = '#f2c35e';
+                        rowOneBackTilesEl[i].style.backgroundColor = '#f2c35e';
                         tileColor.push('yellow');
                         break;
                     case 1:
-                        rowTwoBackTiles[i].style.backgroundColor = '#f2c35e';
+                        rowTwoBackTilesEl[i].style.backgroundColor = '#f2c35e';
                         tileColor.push('yellow');
                         break;
                     case 2:
-                        rowThreeBackTiles[i].style.backgroundColor = '#f2c35e';
+                        rowThreeBackTilesEl[i].style.backgroundColor = '#f2c35e';
                         tileColor.push('yellow');
                         break;
                     case 3:
-                        rowFourBackTiles[i].style.backgroundColor = '#f2c35e';
+                        rowFourBackTilesEl[i].style.backgroundColor = '#f2c35e';
                         tileColor.push('yellow');
                         break;
                     case 4:
-                        rowFiveBackTiles[i].style.backgroundColor = '#f2c35e';
+                        rowFiveBackTilesEl[i].style.backgroundColor = '#f2c35e';
                         tileColor.push('yellow');
                         break;
                     case 5:
-                        rowSixBackTiles[i].style.backgroundColor = '#f2c35e';
+                        rowSixBackTilesEl[i].style.backgroundColor = '#f2c35e';
                         tileColor.push('yellow');
                         break;
                 }
@@ -301,28 +301,28 @@ function renderLetter() {
 
     switch (playerGuesses) {
         case 0:
-            rowOneTiles[letterTotal].textContent = board[playerGuesses][letterTotal];
-            rowOneBackTiles[letterTotal].textContent = board[playerGuesses][letterTotal];
+            rowOneTilesEl[letterTotal].textContent = board[playerGuesses][letterTotal];
+            rowOneBackTilesEl[letterTotal].textContent = board[playerGuesses][letterTotal];
             break;
         case 1:
-            rowTwoTiles[letterTotal].textContent = board[playerGuesses][letterTotal];
-            rowTwoBackTiles[letterTotal].textContent = board[playerGuesses][letterTotal];
+            rowTwoTilesEl[letterTotal].textContent = board[playerGuesses][letterTotal];
+            rowTwoBackTilesEl[letterTotal].textContent = board[playerGuesses][letterTotal];
             break;
         case 2:
-            rowThreeTiles[letterTotal].textContent = board[playerGuesses][letterTotal];
-            rowThreeBackTiles[letterTotal].textContent = board[playerGuesses][letterTotal];
+            rowThreeTilesEl[letterTotal].textContent = board[playerGuesses][letterTotal];
+            rowThreeBackTilesEl[letterTotal].textContent = board[playerGuesses][letterTotal];
             break;
         case 3:
-            rowFourTiles[letterTotal].textContent = board[playerGuesses][letterTotal];
-            rowFourBackTiles[letterTotal].textContent = board[playerGuesses][letterTotal];
+            rowFourTilesEl[letterTotal].textContent = board[playerGuesses][letterTotal];
+            rowFourBackTilesEl[letterTotal].textContent = board[playerGuesses][letterTotal];
             break;
         case 4:
-            rowFiveTiles[letterTotal].textContent = board[playerGuesses][letterTotal];
-            rowFiveBackTiles[letterTotal].textContent = board[playerGuesses][letterTotal];
+            rowFiveTilesEl[letterTotal].textContent = board[playerGuesses][letterTotal];
+            rowFiveBackTilesEl[letterTotal].textContent = board[playerGuesses][letterTotal];
             break;
         case 5:
-            rowSixTiles[letterTotal].textContent = board[playerGuesses][letterTotal];
-            rowSixBackTiles[letterTotal].textContent = board[playerGuesses][letterTotal];
+            rowSixTilesEl[letterTotal].textContent = board[playerGuesses][letterTotal];
+            rowSixBackTilesEl[letterTotal].textContent = board[playerGuesses][letterTotal];
             break;
 
     }
@@ -373,14 +373,14 @@ function renderReset() {
     keysElement.forEach((key) => {
         key.style.backgroundColor = '#f7f4ed';
     });
-    card.forEach((tile) => {
-        tile.style.backgroundColor = 'transparent';
+    cardEl.forEach((tile) => {
+        tile.style.backgroundColor = 'rgba(205, 220, 223, .5)';
         tile.classList.remove('isFlipped');
     });
-    tileFront.forEach((tile) => {
+    tileFrontEl.forEach((tile) => {
         tile.textContent = '';
     });
-    tileBack.forEach((tile) => {
+    tileBackEl.forEach((tile) => {
         tile.textContent = '';
     })
 }
@@ -396,32 +396,32 @@ function flipTiles() {
     switch (playerGuesses) {
         case 0:
             for (let i = 0; i < 5; i++) {
-                rowOneFlipTile[i].classList.add('isFlipped');
+                rowOneFlipTileEl[i].classList.add('isFlipped');
             }
             break;
         case 1:
             for (let i = 0; i < 5; i++) {
-                rowTwoFlipTile[i].classList.add('isFlipped');
+                rowTwoFlipTileEl[i].classList.add('isFlipped');
             }
             break;
         case 2:
             for (let i = 0; i < 5; i++) {
-                rowThreeFlipTile[i].classList.add('isFlipped');
+                rowThreeFlipTileEl[i].classList.add('isFlipped');
             }
             break;
         case 3:
             for (let i = 0; i < 5; i++) {
-                rowFourFlipTile[i].classList.add('isFlipped');
+                rowFourFlipTileEl[i].classList.add('isFlipped');
             }
             break;
         case 4:
             for (let i = 0; i < 5; i++) {
-                rowFiveFlipTile[i].classList.add('isFlipped');
+                rowFiveFlipTileEl[i].classList.add('isFlipped');
             }
             break;
         case 5:
             for (let i = 0; i < 5; i++) {
-                rowSixFlipTile[i].classList.add('isFlipped');
+                rowSixFlipTileEl[i].classList.add('isFlipped');
             }
             break;
 

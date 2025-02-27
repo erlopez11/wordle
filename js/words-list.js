@@ -2312,4 +2312,4 @@ const WORD_LIST = [
     "zebra",
     "zesty",
     "zonal",
-  ]
+]
