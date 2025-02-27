@@ -259,7 +259,8 @@ button:hover {
     transform: rotateY(180deg);
 }
 
-.tileBack {
+.tileBack,
+.tileFront {
     border: 2px solid #cddcdf;
     border-radius: 5px;
     display: flex;
@@ -338,6 +339,10 @@ button:hover {
         width: 40px;
         height: 40px;
 
+    }
+    .tileFront {
+        width: 40px;
+        height: 40px;
     }
     .instructionsContainer {
         background-color: #cddcdf;
@@ -425,6 +430,10 @@ button:hover {
     }
 
     .tileBack {
+        width: 50px;
+        height: 50px;
+    }
+    .tileFront {
         width: 50px;
         height: 50px;
     }

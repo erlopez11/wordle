@@ -111,7 +111,6 @@ function initialize() {
     playerGuesses = 0;
     playerGuess = '';
     tileColor = [];
-    console.log(wordleWord);
 }
 
 function getWordleWord() {
@@ -180,12 +179,6 @@ function updatePlayerWords() {
     })
 }
 
-/* function validateWord() {
-    if (WORD_LIST.indexOf(playerGuess) === -1) {
-        renderWordInvalid();
-        return;
-    }
-} */
 
 function compareWords() {
     let idx = playerGuesses;
@@ -197,7 +190,6 @@ function compareWords() {
 
     for (let i = 0; i < 5; i++) {
         let letterIdx = wordleWord.indexOf(PLAYER_WORDS[idx].guess[i]);
-
 
         if (letterIdx === -1) {
 
@@ -384,7 +376,7 @@ function renderReset() {
     card.forEach((tile) => {
         tile.style.backgroundColor = 'transparent';
         tile.classList.remove('isFlipped');
-    }); 
+    });
     tileFront.forEach((tile) => {
         tile.textContent = '';
     });
