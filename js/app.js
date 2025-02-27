@@ -50,6 +50,8 @@ const overlayElement = document.getElementById('overlay');
 const instructionsOverlayElement = document.getElementById('instructionsOverlay');
 const outcomeElement = document.getElementById('outcome');
 const messageElement = document.getElementById('message');
+const instructionsClose = document.getElementById('instructionsClose');
+const finalMessageClose = document.getElementById('close');
 
 const card = document.querySelectorAll('.card-inner');
 const tileFront = document.querySelectorAll('.tileFront');
@@ -75,7 +77,7 @@ document.getElementById('keyboard').addEventListener('click', (event) => {
     }
 })
 
-document.getElementById('close').addEventListener('click', function () {
+finalMessageClose.addEventListener('click', function () {
     overlayElement.style.display = 'none';
     resetGame();
 });
@@ -87,6 +89,10 @@ document.getElementById('playBtn').addEventListener('click', () => {
 document.getElementById('instructionsBtn').addEventListener('click', () => {
     instructionsOverlayElement.style.display = 'flex';
 })
+
+instructionsClose.addEventListener('click', function () {
+    instructionsOverlayElement.style.display = 'none';
+});
 
 /*-------------- Functions -------------*/
 

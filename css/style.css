@@ -129,6 +129,7 @@ button:hover {
 .instructionsContainer {
     background-color: #cddcdf;
     border-radius: 5px;
+    position: relative;
 }
 
 .instructionsText {
@@ -136,18 +137,24 @@ button:hover {
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    line-height: 15px;
 }
+.instructionsText p {
+    margin-top: 10px;
+}
+
 .tileContainer {
     background-color: #487d89;
     padding: 20px;
     border-radius: 5px;
+    margin-top: 10px;
 }
 .tileInfo {
     display: flex;
     justify-content: space-between;
     align-items: center;
     gap: 10px;
-    padding: 10px;
+    font-size: 12px;
 }
 
 .demo-tile {
@@ -156,14 +163,33 @@ button:hover {
     justify-content: center;
     align-items: center;
 }
+
 .grey-tile {
     background-color: #354f5b;
 }
+
 .yellow-tile {
     background-color: #f2c35e;
 }
+
 .green-tile {
     background-color: #6cbd93;
+}
+
+#instructionsClose {
+    color: #031a2f;
+    background-color: transparent;
+    border: 0;
+    width: 24px;
+    aspect-ratio: 1;
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin: 10px;
+}
+
+#instructionsClose:hover {
+    color: #487d89;
 }
 
 #close {
