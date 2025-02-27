@@ -14,7 +14,9 @@
 <body>
     <header>
         <h1>WORDLE</h1>
-        <!-- Add an question icon here for how to play information -->
+        <button id="instructionsBtn">
+            <span class="material-icons">help</span>
+        </button>
     </header>
 
     <main>
@@ -374,9 +376,8 @@
                 <button class="letterKey">B</button>
                 <button class="letterKey">N</button>
                 <button class="letterKey">M</button>
-                <!-- Add the backspace icon to delete button -->
                 <button class="delete">
-                    <span class="material-icons">backspace</span>
+                    <span class="material-icons md-18">backspace</span>
                 </button>
             </div>
         </section>
@@ -386,6 +387,33 @@
     </div>
     <div id="alertWordInvalid" class="alertMessage">
         <p class="alertText">Invalid Word</p>
+    </div>
+
+    <div id="instructionsOverlay">
+        <div class="instructionsContainer">
+            <div class="instructionsText">
+                <h2>⭐️How to Play⭐️</h2>
+                <p>Welcome to Wordle: the game where you have 6 tries to guess the chosen Wordle Word.</p>
+                <p>To start, use the keyboard provided to enter your word</p>
+                <div class="tileContainer">
+                    <div class="tileInfo">
+                        <div class="demo-tile grey-tile">A</div>
+                        <p>A grey tile means the letter isn't in the Wordle Word</p>
+                    </div>
+                    <div class="tileInfo">
+                        <div class="demo-tile yellow-tile">B</div>
+                        <p>A yellow tile means the letter is in the word but the wrong place</p>
+                    </div>
+                    <div class="tileInfo">
+                        <div class="demo-tile green-tile">C</div>
+                        <p>A green tile means the letter is in the word an in the correct spot</p>
+                    </div>
+                </div>
+                <p>Remember you must input a 5 letter word in order to submit your answer. But don't worry, you will get
+                    an alert if the letter is too short or invalid</p>
+                <h3>Let the game begin! 💫</h3>
+            </div>
+        </div>
     </div>
 
     <div id="overlay">
@@ -400,9 +428,6 @@
             </button>
         </div>
     </div>
-
-
-
 </body>
 
 </html>

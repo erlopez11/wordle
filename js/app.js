@@ -47,6 +47,7 @@ const rowSixBackTiles = document.querySelectorAll('.rowSixBack');
 const keysElement = document.querySelectorAll('.letterKey');
 
 const overlayElement = document.getElementById('overlay');
+const instructionsOverlayElement = document.getElementById('instructionsOverlay');
 const outcomeElement = document.getElementById('outcome');
 const messageElement = document.getElementById('message');
 
@@ -81,6 +82,10 @@ document.getElementById('close').addEventListener('click', function () {
 
 document.getElementById('playBtn').addEventListener('click', () => {
     resetGame();
+})
+
+document.getElementById('instructionsBtn').addEventListener('click', () => {
+    instructionsOverlayElement.style.display = 'flex';
 })
 
 /*-------------- Functions -------------*/
