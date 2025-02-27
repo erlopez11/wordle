@@ -111,7 +111,6 @@ function initialize() {
     playerGuesses = 0;
     playerGuess = '';
     tileColor = [];
-    console.log(wordleWord);
 }
 
 function getWordleWord() {
