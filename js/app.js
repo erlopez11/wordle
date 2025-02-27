@@ -169,12 +169,12 @@ function updatePlayerWords() {
     })
 }
 
-function validateWord() {
+/* function validateWord() {
     if (WORD_LIST.indexOf(playerGuess) === -1) {
         renderWordInvalid();
         return;
     }
-}
+} */
 
 function compareWords() {
     let idx = playerGuesses;
@@ -378,7 +378,6 @@ function renderReset() {
         tile.textContent = '';
     });
     tileBack.forEach((tile) => {
-        console.dir(tile);
         tile.textContent = '';
     })
 }
@@ -447,7 +446,12 @@ function handle() {
         renderAlertLetters();
         return;
     }
-    validateWord();
+
+    if (WORD_LIST.indexOf(playerGuess.toLowerCase()) === -1) {
+        renderWordInvalid();
+        return;
+    }
+
     flipTiles();
     updatePlayerWords();
     compareWords();
