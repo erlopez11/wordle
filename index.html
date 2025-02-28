@@ -12,376 +12,377 @@
 </head>
 
 <body>
-    <header>
-        <h1>WORDLE</h1>
-        <button id="instructionsBtn">
-            <span class="material-icons">help</span>
-        </button>
-    </header>
+    <div class="starsBg">
+        <header>
+            <h1>WORDLE</h1>
+            <button id="instructionsBtn">
+                <span class="material-icons">help</span>
+            </button>
+        </header>
+        <main>
+            <section id="board">
 
-    <main>
-        <section id="board">
-
-            <div id="guessOne" class="container">
-                <div class="card">
-                    <div class="tile card-inner rowOneFlipTile">
-                        <div class="card-front">
-                            <div class="rowOneTile tileFront"></div>
-                        </div>
-                        <div class="card-back">
-                            <div class="rowOneBack tileBack"></div>
+                <div id="guessOne" class="container">
+                    <div class="card">
+                        <div class="tile card-inner rowOneFlipTile">
+                            <div class="card-front">
+                                <div class="rowOneTile tileFront"></div>
+                            </div>
+                            <div class="card-back">
+                                <div class="rowOneBack tileBack"></div>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="card">
-                    <div class="tile card-inner rowOneFlipTile">
-                        <div class="card-front">
-                            <div class="rowOneTile tileFront"></div>
-                        </div>
-                        <div class="card-back">
-                            <div class="rowOneBack tileBack"></div>
-                        </div>
-                    </div>
-                </div>
-                <div class="card">
-                    <div class="tile card-inner rowOneFlipTile">
-                        <div class="card-front">
-                            <div class="rowOneTile tileFront"></div>
-                        </div>
-                        <div class="card-back">
-                            <div class="rowOneBack tileBack"></div>
+                    <div class="card">
+                        <div class="tile card-inner rowOneFlipTile">
+                            <div class="card-front">
+                                <div class="rowOneTile tileFront"></div>
+                            </div>
+                            <div class="card-back">
+                                <div class="rowOneBack tileBack"></div>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="card">
-                    <div class="tile card-inner rowOneFlipTile">
-                        <div class="card-front">
-                            <div class="rowOneTile tileFront"></div>
-                        </div>
-                        <div class="card-back">
-                            <div class="rowOneBack tileBack"></div>
-                        </div>
-                    </div>
-                </div>
-                <div class="card">
-                    <div class="tile card-inner rowOneFlipTile">
-                        <div class="card-front">
-                            <div class="rowOneTile tileFront"></div>
-                        </div>
-                        <div class="card-back">
-                            <div class="rowOneBack tileBack"></div>
+                    <div class="card">
+                        <div class="tile card-inner rowOneFlipTile">
+                            <div class="card-front">
+                                <div class="rowOneTile tileFront"></div>
+                            </div>
+                            <div class="card-back">
+                                <div class="rowOneBack tileBack"></div>
+                            </div>
                         </div>
                     </div>
-                </div>
-            </div>
-
-            <div id="guessTwo" class="container">
-                <div class="card">
-                    <div class="tile card-inner rowTwoFlipTile">
-                        <div class="card-front">
-                            <div class="rowTwoTile tileFront"></div>
-                        </div>
-                        <div class="card-back">
-                            <div class="rowTwoBack tileBack"></div>
+                    <div class="card">
+                        <div class="tile card-inner rowOneFlipTile">
+                            <div class="card-front">
+                                <div class="rowOneTile tileFront"></div>
+                            </div>
+                            <div class="card-back">
+                                <div class="rowOneBack tileBack"></div>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="card">
-                    <div class="tile card-inner rowTwoFlipTile">
-                        <div class="card-front">
-                            <div class="rowTwoTile tileFront"></div>
-                        </div>
-                        <div class="card-back">
-                            <div class="rowTwoBack tileBack"></div>
-                        </div>
-                    </div>
-                </div>
-                <div class="card">
-                    <div class="tile card-inner rowTwoFlipTile">
-                        <div class="card-front">
-                            <div class="rowTwoTile tileFront"></div>
-                        </div>
-                        <div class="card-back">
-                            <div class="rowTwoBack tileBack"></div>
-                        </div>
-                    </div>
-                </div>
-                <div class="card">
-                    <div class="tile card-inner rowTwoFlipTile">
-                        <div class="card-front">
-                            <div class="rowTwoTile tileFront"></div>
-                        </div>
-                        <div class="card-back">
-                            <div class="rowTwoBack tileBack"></div>
-                        </div>
-                    </div>
-                </div>
-                <div class="card">
-                    <div class="tile card-inner rowTwoFlipTile">
-                        <div class="card-front">
-                            <div class="rowTwoTile tileFront"></div>
-                        </div>
-                        <div class="card-back">
-                            <div class="rowTwoBack tileBack"></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div id="guessThree" class="container">
-                <div class="card">
-                    <div class="tile card-inner rowThreeFlipTile">
-                        <div class="card-front">
-                            <div class="rowThreeTile tileFront"></div>
-                        </div>
-                        <div class="card-back">
-                            <div class="rowThreeBack tileBack"></div>
-                        </div>
-                    </div>
-                </div>
-                <div class="card">
-                    <div class="tile card-inner rowThreeFlipTile">
-                        <div class="card-front">
-                            <div class="rowThreeTile tileFront"></div>
-                        </div>
-                        <div class="card-back">
-                            <div class="rowThreeBack tileBack"></div>
-                        </div>
-                    </div>
-                </div>
-                <div class="card">
-                    <div class="tile card-inner rowThreeFlipTile">
-                        <div class="card-front">
-                            <div class="rowThreeTile tileFront"></div>
-                        </div>
-                        <div class="card-back">
-                            <div class="rowThreeBack tileBack"></div>
-                        </div>
-                    </div>
-                </div>
-                <div class="card">
-                    <div class="tile card-inner rowThreeFlipTile">
-                        <div class="card-front">
-                            <div class="rowThreeTile tileFront"></div>
-                        </div>
-                        <div class="card-back">
-                            <div class="rowThreeBack tileBack"></div>
-                        </div>
-                    </div>
-                </div>
-                <div class="card">
-                    <div class="tile card-inner rowThreeFlipTile">
-                        <div class="card-front">
-                            <div class="rowThreeTile tileFront"></div>
-                        </div>
-                        <div class="card-back">
-                            <div class="rowThreeBack tileBack"></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div id="guessFour" class="container">
-                <div class="card">
-                    <div class="tile card-inner rowFourFlipTile">
-                        <div class="card-front">
-                            <div class="rowFourTile tileFront"></div>
-                        </div>
-                        <div class="card-back">
-                            <div class="rowFourBack tileBack"></div>
-                        </div>
-                    </div>
-                </div>
-                <div class="card">
-                    <div class="tile card-inner rowFourFlipTile">
-                        <div class="card-front">
-                            <div class="rowFourTile tileFront"></div>
-                        </div>
-                        <div class="card-back">
-                            <div class="rowFourBack tileBack"></div>
-                        </div>
-                    </div>
-                </div>
-                <div class="card">
-                    <div class="tile card-inner rowFourFlipTile">
-                        <div class="card-front">
-                            <div class="rowFourTile tileFront"></div>
-                        </div>
-                        <div class="card-back">
-                            <div class="rowFourBack tileBack"></div>
-                        </div>
-                    </div>
-                </div>
-                <div class="card">
-                    <div class="tile card-inner rowFourFlipTile">
-                        <div class="card-front">
-                            <div class="rowFourTile tileFront"></div>
-                        </div>
-                        <div class="card-back">
-                            <div class="rowFourBack tileBack"></div>
-                        </div>
-                    </div>
-                </div>
-                <div class="card">
-                    <div class="tile card-inner rowFourFlipTile">
-                        <div class="card-front">
-                            <div class="rowFourTile tileFront"></div>
-                        </div>
-                        <div class="card-back">
-                            <div class="rowFourBack tileBack"></div>
+                    <div class="card">
+                        <div class="tile card-inner rowOneFlipTile">
+                            <div class="card-front">
+                                <div class="rowOneTile tileFront"></div>
+                            </div>
+                            <div class="card-back">
+                                <div class="rowOneBack tileBack"></div>
+                            </div>
                         </div>
                     </div>
                 </div>
 
-            </div>
+                <div id="guessTwo" class="container">
+                    <div class="card">
+                        <div class="tile card-inner rowTwoFlipTile">
+                            <div class="card-front">
+                                <div class="rowTwoTile tileFront"></div>
+                            </div>
+                            <div class="card-back">
+                                <div class="rowTwoBack tileBack"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="tile card-inner rowTwoFlipTile">
+                            <div class="card-front">
+                                <div class="rowTwoTile tileFront"></div>
+                            </div>
+                            <div class="card-back">
+                                <div class="rowTwoBack tileBack"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="tile card-inner rowTwoFlipTile">
+                            <div class="card-front">
+                                <div class="rowTwoTile tileFront"></div>
+                            </div>
+                            <div class="card-back">
+                                <div class="rowTwoBack tileBack"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="tile card-inner rowTwoFlipTile">
+                            <div class="card-front">
+                                <div class="rowTwoTile tileFront"></div>
+                            </div>
+                            <div class="card-back">
+                                <div class="rowTwoBack tileBack"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="tile card-inner rowTwoFlipTile">
+                            <div class="card-front">
+                                <div class="rowTwoTile tileFront"></div>
+                            </div>
+                            <div class="card-back">
+                                <div class="rowTwoBack tileBack"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
-            <div id="guessFive" class="container">
-                <div class="card">
-                    <div class="tile card-inner rowFiveFlipTile">
-                        <div class="card-front">
-                            <div class="rowFiveTile tileFront"></div>
-                        </div>
-                        <div class="card-back">
-                            <div class="rowFiveBack tileBack"></div>
-                        </div>
-                    </div>
-                </div>
-                <div class="card">
-                    <div class="tile card-inner rowFiveFlipTile">
-                        <div class="card-front">
-                            <div class="rowFiveTile tileFront"></div>
-                        </div>
-                        <div class="card-back">
-                            <div class="rowFiveBack tileBack"></div>
+                <div id="guessThree" class="container">
+                    <div class="card">
+                        <div class="tile card-inner rowThreeFlipTile">
+                            <div class="card-front">
+                                <div class="rowThreeTile tileFront"></div>
+                            </div>
+                            <div class="card-back">
+                                <div class="rowThreeBack tileBack"></div>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="card">
-                    <div class="tile card-inner rowFiveFlipTile">
-                        <div class="card-front">
-                            <div class="rowFiveTile tileFront"></div>
-                        </div>
-                        <div class="card-back">
-                            <div class="rowFiveBack tileBack"></div>
-                        </div>
-                    </div>
-                </div>
-                <div class="card">
-                    <div class="tile card-inner rowFiveFlipTile">
-                        <div class="card-front">
-                            <div class="rowFiveTile tileFront"></div>
-                        </div>
-                        <div class="card-back">
-                            <div class="rowFiveBack tileBack"></div>
+                    <div class="card">
+                        <div class="tile card-inner rowThreeFlipTile">
+                            <div class="card-front">
+                                <div class="rowThreeTile tileFront"></div>
+                            </div>
+                            <div class="card-back">
+                                <div class="rowThreeBack tileBack"></div>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="card">
-                    <div class="tile card-inner rowFiveFlipTile">
-                        <div class="card-front">
-                            <div class="rowFiveTile tileFront"></div>
+                    <div class="card">
+                        <div class="tile card-inner rowThreeFlipTile">
+                            <div class="card-front">
+                                <div class="rowThreeTile tileFront"></div>
+                            </div>
+                            <div class="card-back">
+                                <div class="rowThreeBack tileBack"></div>
+                            </div>
                         </div>
-                        <div class="card-back">
-                            <div class="rowFiveBack tileBack"></div>
+                    </div>
+                    <div class="card">
+                        <div class="tile card-inner rowThreeFlipTile">
+                            <div class="card-front">
+                                <div class="rowThreeTile tileFront"></div>
+                            </div>
+                            <div class="card-back">
+                                <div class="rowThreeBack tileBack"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="tile card-inner rowThreeFlipTile">
+                            <div class="card-front">
+                                <div class="rowThreeTile tileFront"></div>
+                            </div>
+                            <div class="card-back">
+                                <div class="rowThreeBack tileBack"></div>
+                            </div>
                         </div>
                     </div>
                 </div>
 
-            </div>
-            <div id="guessSix" class="container">
-                <div class="card">
-                    <div class="tile card-inner rowSixFlipTile">
-                        <div class="card-front">
-                            <div class="rowSixTile tileFront"></div>
-                        </div>
-                        <div class="card-back">
-                            <div class="rowSixBack tileBack"></div>
-                        </div>
-                    </div>
-                </div>
-                <div class="card">
-                    <div class="tile card-inner rowSixFlipTile">
-                        <div class="card-front">
-                            <div class="rowSixTile tileFront"></div>
-                        </div>
-                        <div class="card-back">
-                            <div class="rowSixBack tileBack"></div>
+                <div id="guessFour" class="container">
+                    <div class="card">
+                        <div class="tile card-inner rowFourFlipTile">
+                            <div class="card-front">
+                                <div class="rowFourTile tileFront"></div>
+                            </div>
+                            <div class="card-back">
+                                <div class="rowFourBack tileBack"></div>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="card">
-                    <div class="tile card-inner rowSixFlipTile">
-                        <div class="card-front">
-                            <div class="rowSixTile tileFront"></div>
-                        </div>
-                        <div class="card-back">
-                            <div class="rowSixBack tileBack"></div>
-                        </div>
-                    </div>
-                </div>
-                <div class="card">
-                    <div class="tile card-inner rowSixFlipTile">
-                        <div class="card-front">
-                            <div class="rowSixTile tileFront"></div>
-                        </div>
-                        <div class="card-back">
-                            <div class="rowSixBack tileBack"></div>
+                    <div class="card">
+                        <div class="tile card-inner rowFourFlipTile">
+                            <div class="card-front">
+                                <div class="rowFourTile tileFront"></div>
+                            </div>
+                            <div class="card-back">
+                                <div class="rowFourBack tileBack"></div>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="card">
-                    <div class="tile card-inner rowSixFlipTile">
-                        <div class="card-front">
-                            <div class="rowSixTile tileFront"></div>
-                        </div>
-                        <div class="card-back">
-                            <div class="rowSixBack tileBack"></div>
+                    <div class="card">
+                        <div class="tile card-inner rowFourFlipTile">
+                            <div class="card-front">
+                                <div class="rowFourTile tileFront"></div>
+                            </div>
+                            <div class="card-back">
+                                <div class="rowFourBack tileBack"></div>
+                            </div>
                         </div>
                     </div>
-                </div>
-            </div>
+                    <div class="card">
+                        <div class="tile card-inner rowFourFlipTile">
+                            <div class="card-front">
+                                <div class="rowFourTile tileFront"></div>
+                            </div>
+                            <div class="card-back">
+                                <div class="rowFourBack tileBack"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="tile card-inner rowFourFlipTile">
+                            <div class="card-front">
+                                <div class="rowFourTile tileFront"></div>
+                            </div>
+                            <div class="card-back">
+                                <div class="rowFourBack tileBack"></div>
+                            </div>
+                        </div>
+                    </div>
 
-        </section>
+                </div>
 
-        <section id="keyboard">
-            <div class="keyboardTop keysContainer">
-                <button class="letterKey">Q</button>
-                <button class="letterKey">W</button>
-                <button class="letterKey">E</button>
-                <button class="letterKey">R</button>
-                <button class="letterKey">T</button>
-                <button class="letterKey">Y</button>
-                <button class="letterKey">U</button>
-                <button class="letterKey">I</button>
-                <button class="letterKey">O</button>
-                <button class="letterKey">P</button>
-            </div>
-            <div class="keyboardMiddle keysContainer">
-                <button class="letterKey">A</button>
-                <button class="letterKey">S</button>
-                <button class="letterKey">D</button>
-                <button class="letterKey">F</button>
-                <button class="letterKey">G</button>
-                <button class="letterKey">H</button>
-                <button class="letterKey">J</button>
-                <button class="letterKey">K</button>
-                <button class="letterKey">L</button>
-            </div>
-            <div class="keyboardBottom keysContainer">
-                <button class="submit">ENTER</button>
-                <button class="letterKey">Z</button>
-                <button class="letterKey">X</button>
-                <button class="letterKey">C</button>
-                <button class="letterKey">V</button>
-                <button class="letterKey">B</button>
-                <button class="letterKey">N</button>
-                <button class="letterKey">M</button>
-                <button class="delete">
-                    <span class="material-icons md-18">backspace</span>
-                </button>
-            </div>
-        </section>
-    </main>
+                <div id="guessFive" class="container">
+                    <div class="card">
+                        <div class="tile card-inner rowFiveFlipTile">
+                            <div class="card-front">
+                                <div class="rowFiveTile tileFront"></div>
+                            </div>
+                            <div class="card-back">
+                                <div class="rowFiveBack tileBack"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="tile card-inner rowFiveFlipTile">
+                            <div class="card-front">
+                                <div class="rowFiveTile tileFront"></div>
+                            </div>
+                            <div class="card-back">
+                                <div class="rowFiveBack tileBack"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="tile card-inner rowFiveFlipTile">
+                            <div class="card-front">
+                                <div class="rowFiveTile tileFront"></div>
+                            </div>
+                            <div class="card-back">
+                                <div class="rowFiveBack tileBack"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="tile card-inner rowFiveFlipTile">
+                            <div class="card-front">
+                                <div class="rowFiveTile tileFront"></div>
+                            </div>
+                            <div class="card-back">
+                                <div class="rowFiveBack tileBack"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="tile card-inner rowFiveFlipTile">
+                            <div class="card-front">
+                                <div class="rowFiveTile tileFront"></div>
+                            </div>
+                            <div class="card-back">
+                                <div class="rowFiveBack tileBack"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <div id="guessSix" class="container">
+                    <div class="card">
+                        <div class="tile card-inner rowSixFlipTile">
+                            <div class="card-front">
+                                <div class="rowSixTile tileFront"></div>
+                            </div>
+                            <div class="card-back">
+                                <div class="rowSixBack tileBack"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="tile card-inner rowSixFlipTile">
+                            <div class="card-front">
+                                <div class="rowSixTile tileFront"></div>
+                            </div>
+                            <div class="card-back">
+                                <div class="rowSixBack tileBack"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="tile card-inner rowSixFlipTile">
+                            <div class="card-front">
+                                <div class="rowSixTile tileFront"></div>
+                            </div>
+                            <div class="card-back">
+                                <div class="rowSixBack tileBack"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="tile card-inner rowSixFlipTile">
+                            <div class="card-front">
+                                <div class="rowSixTile tileFront"></div>
+                            </div>
+                            <div class="card-back">
+                                <div class="rowSixBack tileBack"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="tile card-inner rowSixFlipTile">
+                            <div class="card-front">
+                                <div class="rowSixTile tileFront"></div>
+                            </div>
+                            <div class="card-back">
+                                <div class="rowSixBack tileBack"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </section>
+
+            <section id="keyboard">
+                <div class="keyboardTop keysContainer">
+                    <button class="letterKey">Q</button>
+                    <button class="letterKey">W</button>
+                    <button class="letterKey">E</button>
+                    <button class="letterKey">R</button>
+                    <button class="letterKey">T</button>
+                    <button class="letterKey">Y</button>
+                    <button class="letterKey">U</button>
+                    <button class="letterKey">I</button>
+                    <button class="letterKey">O</button>
+                    <button class="letterKey">P</button>
+                </div>
+                <div class="keyboardMiddle keysContainer">
+                    <button class="letterKey">A</button>
+                    <button class="letterKey">S</button>
+                    <button class="letterKey">D</button>
+                    <button class="letterKey">F</button>
+                    <button class="letterKey">G</button>
+                    <button class="letterKey">H</button>
+                    <button class="letterKey">J</button>
+                    <button class="letterKey">K</button>
+                    <button class="letterKey">L</button>
+                </div>
+                <div class="keyboardBottom keysContainer">
+                    <button class="submit">ENTER</button>
+                    <button class="letterKey">Z</button>
+                    <button class="letterKey">X</button>
+                    <button class="letterKey">C</button>
+                    <button class="letterKey">V</button>
+                    <button class="letterKey">B</button>
+                    <button class="letterKey">N</button>
+                    <button class="letterKey">M</button>
+                    <button class="delete">
+                        <span class="material-icons md-18">backspace</span>
+                    </button>
+                </div>
+            </section>
+        </main>
+    </div>
     <div id="alertMessageLetters" class="alertMessage">
         <p class="alertText">5 letters required</p>
     </div>
