@@ -8,7 +8,7 @@ const PLAYER_WORDS = [
     { guess: null },
     { guess: null },
     { guess: null },
-]
+];
 
 /*---------- Variables (state) ---------*/
 let letterTotal;
@@ -73,9 +73,9 @@ document.getElementById('keyboard').addEventListener('click', (event) => {
     }
 
     if (event.target.classList.contains('submit')) {
-        handle()
+        handle();
     }
-})
+});
 
 finalMessageCloseEl.addEventListener('click', function () {
     overlayElement.style.display = 'none';
@@ -84,11 +84,11 @@ finalMessageCloseEl.addEventListener('click', function () {
 
 document.getElementById('playBtn').addEventListener('click', () => {
     resetGame();
-})
+});
 
 document.getElementById('instructionsBtn').addEventListener('click', () => {
     instructionsOverlayElement.style.display = 'flex';
-})
+});
 
 instructionsCloseEl.addEventListener('click', function () {
     instructionsOverlayElement.style.display = 'none';
@@ -104,8 +104,8 @@ function initialize() {
         [],
         [],
         []
-    ]
-    getWordleWord()
+    ];
+    getWordleWord();
     win = null;
     letterTotal = 0;
     playerGuesses = 0;
@@ -116,7 +116,7 @@ function initialize() {
 function getWordleWord() {
     let randomIndex = Math.floor(Math.random() * WORD_LIST.length);
     wordleWord = WORD_LIST[randomIndex];
-}
+};
 
 
 function addLetters(letter) {
@@ -129,7 +129,7 @@ function addLetters(letter) {
             board[playerGuesses].push(letter);
         }
     }
-}
+};
 
 function deleteLetters() {
     board[playerGuesses].pop();
@@ -169,15 +169,15 @@ function deleteLetters() {
 
         letterTotal -= 1;
     }
-}
+};
 
 function updatePlayerWords() {
     PLAYER_WORDS.forEach((row, index) => {
         if (index === playerGuesses) {
             row.guess = playerGuess.toLowerCase();
         }
-    })
-}
+    });
+};
 
 
 function compareWords() {
@@ -186,7 +186,7 @@ function compareWords() {
 
     if (wordleWord === PLAYER_WORDS[idx].guess) {
         win = true;
-    }
+    };
 
     for (let i = 0; i < 5; i++) {
         let letterIdx = wordleWord.indexOf(PLAYER_WORDS[idx].guess[i]);
@@ -218,7 +218,7 @@ function compareWords() {
                     rowSixBackTilesEl[i].style.backgroundColor = '#354f5b';
                     tileColor.push('grey');
                     break;
-            }
+            };
 
         } else {
             if (wordleWord[i] === PLAYER_WORDS[idx].guess[i]) {
@@ -248,7 +248,7 @@ function compareWords() {
                         rowSixBackTilesEl[i].style.backgroundColor = '#6cbd93';
                         tileColor.push('green');
                         break;
-                }
+                };
 
             } else {
 
@@ -277,27 +277,27 @@ function compareWords() {
                         rowSixBackTilesEl[i].style.backgroundColor = '#f2c35e';
                         tileColor.push('yellow');
                         break;
-                }
+                };
             }
         }
     }
-}
+};
 
 function moveToNextRow() {
     if (playerGuesses === 5 && wordleWord !== PLAYER_WORDS[5].guess) {
         win = false;
-    }
+    };
 
     playerGuesses += 1;
     playerGuess = '';
     letterTotal = 0;
     tileColor = [];
-}
+};
 
 function renderLetter() {
     if (letterTotal === 5) {
         return;
-    }
+    };
 
     switch (playerGuesses) {
         case 0:
@@ -325,10 +325,10 @@ function renderLetter() {
             rowSixBackTilesEl[letterTotal].textContent = board[playerGuesses][letterTotal];
             break;
 
-    }
+    };
 
     letterTotal += 1;
-}
+};
 
 function renderKeyboradColor() {
 
@@ -348,9 +348,8 @@ function renderKeyboradColor() {
                 }
             }
         }
-    })
-
-}
+    });
+};
 
 function renderMessages() {
     if (win === true) {
@@ -366,8 +365,8 @@ function renderMessages() {
             outcomeElement.textContent = 'You Lost ⛈️';
             messageElement.textContent = `Wordle Word: ${wordleWord}`;
         }, 1000);
-    }
-}
+    };
+};
 
 function renderReset() {
     keysElement.forEach((key) => {
@@ -382,14 +381,14 @@ function renderReset() {
     });
     tileBackEl.forEach((tile) => {
         tile.textContent = '';
-    })
-}
+    });
+};
 
 function resetGame() {
-    overlayElement.style.display = "none";
+    overlayElement.style.display = 'none';
     renderReset();
     initialize();
-}
+};
 
 function flipTiles() {
 
@@ -425,8 +424,8 @@ function flipTiles() {
             }
             break;
 
-    }
-}
+    };
+};
 
 function renderAlertLetters() {
     document.getElementById('alertMessageLetters').style.display = 'flex';
@@ -434,7 +433,7 @@ function renderAlertLetters() {
         document.getElementById('alertMessageLetters').style.display = 'none';
     }, 1000);
 
-}
+};
 
 function renderWordInvalid() {
     document.getElementById('alertWordInvalid').style.display = 'flex';
@@ -442,18 +441,18 @@ function renderWordInvalid() {
         document.getElementById('alertWordInvalid').style.display = 'none';
     }, 1000);
 
-}
+};
 
 function handle() {
     if (letterTotal < 5) {
         renderAlertLetters();
         return;
-    }
+    };
 
     if (WORD_LIST.indexOf(playerGuess.toLowerCase()) === -1) {
         renderWordInvalid();
         return;
-    }
+    };
 
     flipTiles();
     updatePlayerWords();
@@ -461,9 +460,9 @@ function handle() {
     renderKeyboradColor();
     moveToNextRow();
     renderMessages();
-}
+};
 
-initialize()
+initialize();
 
 
 

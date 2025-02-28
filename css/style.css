@@ -118,7 +118,7 @@ button:hover {
     height: 100vh;
     background-color: rgba(3, 26, 47, .8);
     display: none;
-    transition: display 5s ease ;
+    transition: display 5s ease;
 }
 
 .overlayMessage {

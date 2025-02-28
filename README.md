@@ -18,14 +18,14 @@ This game logic presented a great opportunuty to apply what I have learned so fa
 ## Challenges
 This project presented quite a few challenges that needed to be overcome; while the game appears as a simple minimalistic design, there are multiple small functions happening in the background. It was helpful to break the code down into small little pieces instead of trying to code it as one big operation.
 
-The most difficult part of this project ultimately appeared when it came time to render all of the DOM elements. Specifically in rendering each letters in its individual tile, changing the tile color, and applying  the animation to each tile. During these steps I found that I always ended up applying the style changes to the incorrect DOM element. 
+The most difficult part of this project ultimately appeared when it came time to render all of the DOM elements. Specifically in rendering each letter in its individual tile, changing the tile color, and applying  the animation to each tile. During these steps I found that I always ended up applying the style changes to the incorrect DOM element. 
 
 While difficult, this provided me with a great opportunity in getting used to accessing groups of DOM elements and only applying the stylistic change to one individual letter tile.
 
 ## Next Steps
 * Add transitions for when messages and alerts appear
 * Provide player statistics on the number of games won, current streak, and the wins for each guess 
-* Provide a version of light/darl mode where the user can toggle between night sky (current version) and morning sky
+* Provide a version of light/dark mode where the user can toggle between night sky (current version) and morning sky
 * add additional animations for when word is invalid/short and for when each letter is added to the tile 
 
 ## Attributions
