@@ -1,3 +1,5 @@
+![Wordle board of 30 empty tiles, a qwerty keyboard in the middle of the page and a help button in the top right corner](../wordle/image/wordleGameStart.png)
+
 # Wordle
 Welcome to Wordle! This project is a clone of the web-based game Wordle created by Josh Wardle, which was originally released in 2021. 
 
@@ -34,3 +36,9 @@ While difficult, this provided me with a great opportunity in getting used to ac
 [Planning Materials](https://docs.google.com/document/d/1mLs6CIeiKNC5eX4JwyEttRVNlzfVewnrKMt08Re2yvU/edit?usp=sharing)
 
 Theme inspired by Spiritfairer game design
+
+![A wordle game in play with 'place' and 'drape' as the first two guesses and 'spa' in the thrid row](../wordle/image/wordleGamePlay.png)
+
+![A message overlayed on top of the game board that says 'You Win! Guesses Made: 3' and a  play button](../wordle/image/wordleWinMessage.png)
+
+![A message explaing the steps to play Wordle and how to win](./image/wordleHowTo.png)
