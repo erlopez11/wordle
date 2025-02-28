@@ -29,3 +29,8 @@ While difficult, this provided me with a great opportunity in getting used to ac
 ## Attributions
 [Wordle Word List By Chris Wilcoxson](https://gist.github.com/slushman/34e60d6bc479ac8fc698df8c226e4264)
 
+## Design and Planning
+
+[Planning Materials](https://docs.google.com/document/d/1mLs6CIeiKNC5eX4JwyEttRVNlzfVewnrKMt08Re2yvU/edit?usp=sharing)
+
+Theme inspired by Spiritfairer game design
